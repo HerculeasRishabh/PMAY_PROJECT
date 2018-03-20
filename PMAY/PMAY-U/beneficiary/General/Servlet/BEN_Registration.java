@@ -43,7 +43,7 @@ public class BEN_Registration extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	    response.setContentType("text/html");
-         String savePath = "/Users/rishabhojha/Documents/workspace/PMAY/WebContent/PMAY-U" + File.separator + SAVE_DIR;
+         String savePath = "/Users/rishabhojha/git/PMAY_PROJECT/PMAY/WebContent/PMAY-U" + File.separator + SAVE_DIR;
          File fileSaveDir=new File(savePath);
          if(!fileSaveDir.exists()){
              fileSaveDir.mkdir();
