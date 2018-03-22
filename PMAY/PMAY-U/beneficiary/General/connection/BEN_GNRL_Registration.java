@@ -62,7 +62,7 @@ public class BEN_GNRL_Registration {
      * 
      * @param 
      */
-    public void beneficiaryGeneralInsert (String STATE, String DISTRICT, String CITY, String WARD, String SLUM_NAME, String AREA_NAME, 
+    public int beneficiaryGeneralInsert (String STATE, String DISTRICT, String CITY, String WARD, String SLUM_NAME, String AREA_NAME, 
             byte HFA_VERTICAL, String FMLY_HEAD_NM, byte SEX, String FATHERS_NAME, byte fMLY_HEAD_AGE, String HOUSE_NO, String STREET, 
             String MOBILE_NO, byte oWNERSHIP, byte hOUSE_TYPE, byte nO_ROOMS, String AADHAR_CARD, byte rELIGION, byte cASTE, String BANK_NM, 
             String BANK_ACC_NO, String BRANCH_NM, byte yEARS_STAY, BigDecimal SIZE_DU, byte dISABLE, byte mARITAL_STATUS, byte oWNS_HOUSE_LAND, 
@@ -115,14 +115,45 @@ public class BEN_GNRL_Registration {
             pstmt.setString(34, DGTL_SIGN_ULB);
             
             counter = pstmt.executeUpdate();
+            System.out.println(counter);
+            return counter;
+            
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        
+        return counter;
     }
     
-    
+    /**
+     * @author rishabhojha
+     * 
+     * This function inserts the data of new beneficiary family
+     * member into the BEN_FAMILY_GNRL table
+     * 
+     * @parm
+     */
+    public void BeneficiaryFamilyInsert (String BEN_AADHAR, String fmlyName, byte fmlyGender, byte fmlyRelation,
+                                        byte fmlyAge, String fmlyAadhar){
+        
+        sql = "INSERT INTO BEN_FAMILY_GNRL VALUES (?, ?, ?, ?, ?, ?)";
+        
+        try {
+            pstmt = conn.prepareStatement(sql);
+            
+            pstmt.setString(1, BEN_AADHAR);
+            pstmt.setString(2, fmlyName);
+            pstmt.setByte(3, fmlyRelation);
+            pstmt.setByte(4, fmlyGender);
+            pstmt.setByte(5, fmlyAge);
+            pstmt.setString(6, fmlyAadhar);
+            
+            counter = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
     
     
     

@@ -91,10 +91,28 @@ public class BEN_Registration extends HttpServlet {
          
          BEN_GNRL_Registration obj = new BEN_GNRL_Registration();
          
-         obj.beneficiaryGeneralInsert(STATE, DISTRICT, CITY, WARD, SLUM_NAME, AREA_NAME, HFA_VERTICAL, FMLY_HEAD_NM, SEX, FATHERS_NAME,
+         int run = obj.beneficiaryGeneralInsert(STATE, DISTRICT, CITY, WARD, SLUM_NAME, AREA_NAME, HFA_VERTICAL, FMLY_HEAD_NM, SEX, FATHERS_NAME,
                  FMLY_HEAD_AGE, HOUSE_NO, STREET, MOBILE_NO, OWNERSHIP, HOUSE_TYPE, NO_ROOMS, AADHAR_CARD, RELIGION, CASTE, BANK_NM, 
                  BANK_ACC_NO, BRANCH_NM, YEARS_STAY, SIZE_DU, DISABLE, MARITAL_STATUS, OWNS_HOUSE_LAND, EMPLOYMENT, AVG_MONTHLY_INC, 
                  BPL_CARD_NO, HOUSING_REQ, FMLY_HEAD_IMG_PATH, DGTL_SIGN_ULB);
+         
+         if (run != -1 ){
+             String [] fmlyNames = request.getParameterValues("nameFam");
+             String [] fmlyGender  = request.getParameterValues("memberGenderFam");
+             String [] fmlyRelation = request.getParameterValues("memberRelationFam");
+             String [] fmlyAge = request.getParameterValues("memberAgeFam");
+             String [] fmlyAadhar = request.getParameterValues("memberAadharFam"); 
+             
+             for (int i = 0; i < fmlyNames.length; i++){
+                 
+                 obj.BeneficiaryFamilyInsert(AADHAR_CARD, fmlyNames[i], Byte.parseByte(fmlyRelation[i]), Byte.parseByte(fmlyGender[i]),
+                                         Byte.parseByte(fmlyAge[i]), fmlyAadhar[i]);
+             }
+             
+         }
+         
+         
+         
 		
 	}
 
