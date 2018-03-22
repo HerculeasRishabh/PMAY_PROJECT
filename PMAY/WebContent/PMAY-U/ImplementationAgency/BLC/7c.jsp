@@ -157,23 +157,23 @@
                                
             <div class="row">
                     <div class="col input-field s3">
-                      <select name="SLNA_namee">
+                      <select name="SLNA_name">
                           <option value="">State Level Nodal Agency</option>
-                          <option value="1">SLAC</option>
-                          <option value="2">SLSMC</option>
+                          <option value="SLAC">SLAC</option>
+                          <option value="SLSMC">SLSMC</option>
                       </select>
                    </div>
                
                    <div class="col input-field s3">
                       <select name="IA_name">
                           <option value="">Implementing Agency </option>
-                          <option value="1">Urban Local Bodies</option>
-                          <option value="2">Development Authority</option>
-                          <option value="3">Housing Board</option>
-                          <option value="4">Urban Improvement Trust</option>
-                          <option value="5">Slum Rehabilitation Agency</option>
-                          <option value="6">Private Agency</option>
-                          <option value="7">Developer</option>
+                          <option value="ULB">Urban Local Bodies</option>
+                          <option value="DA">Development Authority</option>
+                          <option value="HB">Housing Board</option>
+                          <option value="UIT">Urban Improvement Trust</option>
+                          <option value="SR">Slum Rehabilitation Agency</option>
+                          <option value="PA">Private Agency</option>
+                          <option value="DV">Developer</option>
                       </select>
                </div>
    </div>
@@ -488,7 +488,7 @@
                                 </div>
                                   <div class="row">
                                   <div class="col input-field s12">
-                                          <input name="projectBrief" id="otherInfo" type="text" class="validate">
+                                          <input name="otherInfo" id="otherInfo" type="text" class="validate">
                                           <label for="projectBrief">Project Brief including any other information ULB/State would like to furnish</label>
                                   </div>
                               </div>
@@ -497,12 +497,8 @@
 
                                 <div style="margin-left: 50px" class="row">
                                   <div class="col">
-                                      <input type="submit" value="submit">Save</input>
+                                      <input type="submit" value="submit">
                                   </div>
-                                  <div class="col">
-                                      <a class="waves-effect waves-light btn">Cancel</a>
-                                  </div>
-                                </div>
                       
         </form>
     </body>
