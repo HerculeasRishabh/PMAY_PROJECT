@@ -202,7 +202,7 @@
                     <label for="icon_prefix">Father's Name</label>
                 </div>
                 <div class="input-field col s3">
-                    <input required name="headAge" id="icon_prefix" type="text" class="validate">
+                    <input required name="headAge" id="icon_prefix" type="number" class="validate">
                     <label for="icon_prefix">Age of Head of Family</label>
                 </div>
             </div>
@@ -210,12 +210,12 @@
             <div class="row">
                 <p style="margin-left:10px;">Enter Address:</p>
                 <div class="input-field col s2">
-                    <input required name="addressHouseNumber" id="icon_prefix" type="text" class="validate">
+                    <input required name="addressHouseNumber" id="icon_prefix" type="number" class="validate">
                     <label for="icon_prefix">House number</label>
                 </div>
                 <div class="input-field col s4">
                     <input required name="addressStreetName" id="icon_prefix" type="text" class="validate">
-                    <label for="icon_prefix">Name of Slum</label>
+                    <label for="icon_prefix">Name of Street</label>
                 </div>
             </div>
             <div class="row">
@@ -376,7 +376,7 @@
                     <select required name="maritalStatus">
                         <option value="">Select Marital Status</option>
                         <option value="1">Married</option>
-                        <option value="2">UnMarried</option>
+                        <option value="2">Un-married</option>
                         <option value="3">Single Woman or Widow</option>
                     </select>
                 </div><div class="col input-field s3"> 

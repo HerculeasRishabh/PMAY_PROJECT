@@ -1,19 +1,22 @@
-package beneficiary.General.connection;
+package beneficiary.InSitu.connection;
 
 import java.math.BigDecimal;
-import java.sql.*;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * 
  * @author rishabhojha
  *
  * This class contains functions that deal with the
- * general-BENEFICIARY related data in the database 
+ * InSitu-BENEFICIARY related data in the database 
  */
 
-public class BEN_GNRL_Registration {
-    
+
+public class BEN_InSitu_Register {
     //References Declaration
     Connection conn = null;
     PreparedStatement pstmt = null;
@@ -34,7 +37,7 @@ public class BEN_GNRL_Registration {
      * 
      * Default constructor to establish connection with the database
      */
-    public BEN_GNRL_Registration() {
+    public BEN_InSitu_Register() {
         
         try{
             //STEP 1 - Load the Driver
@@ -58,24 +61,23 @@ public class BEN_GNRL_Registration {
      * @author rishabhojha
      * 
      * This function inserts the data of a NEW BENEFICIARY 
-     * into the BEN_SURVEY_GNRL table
+     * into the BEN_SURVEY_INSITU table
      * 
      * @param 
      */
-    public int beneficiaryGeneralInsert (String STATE, String DISTRICT, String CITY, String WARD, String SLUM_NAME, String AREA_NAME, 
+    public int beneficiaryInSituInsert (String STATE, String DISTRICT, String CITY, String WARD, String SLUM_NAME, String AREA_NAME, 
             byte HFA_VERTICAL, String FMLY_HEAD_NM, byte SEX, String FATHERS_NAME, byte fMLY_HEAD_AGE, String HOUSE_NO, String STREET, 
-            String MOBILE_NO, byte oWNERSHIP, byte hOUSE_TYPE, byte nO_ROOMS, String AADHAR_CARD, byte rELIGION, byte cASTE, String BANK_NM, 
-            String BANK_ACC_NO, String BRANCH_NM, byte yEARS_STAY, BigDecimal SIZE_DU, byte dISABLE, byte mARITAL_STATUS, byte oWNS_HOUSE_LAND, 
-            byte eMPLOYMENT, BigDecimal AVG_MONTHLY_INC, String BPL_CARD_NO, byte hOUSING_REQ, String FMLY_HEAD_IMG_PATH, String DGTL_SIGN_ULB){
+            String MOBILE_NO, String AADHAR_CARD, byte rELIGION, byte cASTE, byte dISABLE, byte mARITAL_STATUS, byte oWNS_HOUSE_LAND, 
+            byte OWNERSHIP_DETAILS, BigDecimal AVG_MONTHLY_INC, String FMLY_HEAD_IMG_PATH, String DGTL_SIGN_ULB){
         
-        sql = "INSERT INTO BEN_SURVEY_GNRL ( "
-                +"STATE, DISTRICT, CITY, WARD, SLUM_NAME, AREA_NAME, HFA_VERTICAL, FMLY_HEAD_NM, SEX, FATHERS_NAME, FMLY_HEAD_AGE,"
-                +"HOUSE_NO, STREET, MOBILE_NO, OWNERSHIP, HOUSE_TYPE, NO_ROOMS, AADHAR_CARD, RELIGION, CASTE, BANK_NM, BANK_ACC_NO," 
-                +"BRANCH_NM, YEARS_STAY, SIZE_DU, DISABLE, MARITAL_STATUS, OWNS_HOUSE_LAND, EMPLOYMENT, AVG_MONTHLY_INC, "
-                +"BPL_CARD_NO, HOUSING_REQ, FMLY_HEAD_IMG_PATH, DGTL_SIGN_ULB"
-                +") VALUES ("
-                +"?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"
-                +");";
+        sql = " INSERT INTO BEN_SURVEY_INSITU ("
+             +" STATE, DISTRICT, CITY, WARD, SLUM_NAME, AREA_NAME, HFA_VERTICAL, FMLY_HEAD_NM, SEX, FATHERS_NAME, FMLY_HEAD_AGE,"
+             +" HOUSE_NO, STREET, MOBILE_NO, AADHAR_CARD, RELIGION, CASTE, DISABLE, MARITAL_STATUS, OWNS_HOUSE_LAND, OWNERSHIP_DETAILS,"
+             +" AVG_MONTHLY_INC, FMLY_HEAD_IMG_PATH, DGTL_SIGN_ULB"
+             +"  ) VALUES ("
+             +" ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"
+             +" );";
+        
         try {
             pstmt = conn.prepareStatement(sql);
             
@@ -93,26 +95,16 @@ public class BEN_GNRL_Registration {
             pstmt.setString(12, HOUSE_NO);
             pstmt.setString(13, STREET);
             pstmt.setString(14, MOBILE_NO);
-            pstmt.setByte(15, oWNERSHIP);
-            pstmt.setByte(16, hOUSE_TYPE);
-            pstmt.setByte(17, nO_ROOMS);
-            pstmt.setString(18, AADHAR_CARD);
-            pstmt.setByte(19, rELIGION);
-            pstmt.setByte(20, cASTE);
-            pstmt.setString(21, BANK_NM);
-            pstmt.setString(22, BANK_ACC_NO);
-            pstmt.setString(23, BRANCH_NM);
-            pstmt.setByte(24, yEARS_STAY);
-            pstmt.setBigDecimal(25, SIZE_DU);
-            pstmt.setByte(26, dISABLE);
-            pstmt.setByte(27, mARITAL_STATUS);
-            pstmt.setByte(28, oWNS_HOUSE_LAND);
-            pstmt.setByte(29, eMPLOYMENT);
-            pstmt.setBigDecimal(30, AVG_MONTHLY_INC);
-            pstmt.setString(31, BPL_CARD_NO);
-            pstmt.setByte(32, hOUSING_REQ);
-            pstmt.setString(33, FMLY_HEAD_IMG_PATH);
-            pstmt.setString(34, DGTL_SIGN_ULB);
+            pstmt.setString(15, AADHAR_CARD);
+            pstmt.setByte(16, rELIGION);
+            pstmt.setByte(17, cASTE);
+            pstmt.setByte(18, dISABLE);
+            pstmt.setByte(19, mARITAL_STATUS);
+            pstmt.setByte(20, oWNS_HOUSE_LAND);
+            pstmt.setByte(21, OWNERSHIP_DETAILS);
+            pstmt.setBigDecimal(22, AVG_MONTHLY_INC);
+            pstmt.setString(23, FMLY_HEAD_IMG_PATH);
+            pstmt.setString(24, DGTL_SIGN_ULB);
             
             counter = pstmt.executeUpdate();
             System.out.println(counter);
@@ -123,20 +115,20 @@ public class BEN_GNRL_Registration {
             e.printStackTrace();
         }
         return counter;
-    }//end of beneficiaryGeneralInsert
+    }//end of beneficiaryInSituInsert
     
     /**
      * @author rishabhojha
      * 
      * This function inserts the data of new beneficiary family
-     * member into the BEN_FAMILY_GNRL table
+     * member into the BEN_FAMILY_INSITU table
      * 
      * @parm
      */
     public void BeneficiaryFamilyInsert (String BEN_AADHAR, String fmlyName, byte fmlyGender, byte fmlyRelation,
                                         byte fmlyAge, String fmlyAadhar){
         
-        sql = "INSERT INTO BEN_FAMILY_GNRL VALUES (?, ?, ?, ?, ?, ?)";
+        sql = "INSERT INTO BEN_FAMILY_INSITU VALUES (?, ?, ?, ?, ?, ?)";
         
         try {
             pstmt = conn.prepareStatement(sql);
@@ -154,12 +146,6 @@ public class BEN_GNRL_Registration {
             e.printStackTrace();
         }
     }//end of BeneficiaryFamilyInsert
-    
-    
-    
-    
-    
-    
-    
-    
-}//End of class BEN_GNRL_Registraiton
+
+
+}//end of class
