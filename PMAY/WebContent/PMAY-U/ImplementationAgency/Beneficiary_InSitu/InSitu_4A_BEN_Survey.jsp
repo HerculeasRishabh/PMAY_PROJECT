@@ -20,9 +20,7 @@
         });
     </script>
 
-
-</head>
-<body>
+<jsp:include page = "../../Headers/IA_Header.jspf"/>
     <nav class="inSituHead">
         <div class="nav-wrapper">
           <ul>
@@ -299,5 +297,4 @@
                         </div>
                       </div>
                 </form>
-</body>
-</html>
+<jsp:include page = "../../Footers/IA_Footer.jspf"/>
