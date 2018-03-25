@@ -1,0 +1,23 @@
+   <!--FOOTER CONTENT-->
+   </div>
+          <footer class="page-footer">
+              <div style="height: 80px;" class="container">
+                <div class="row">
+                  <div class="col l6 s12">
+                    <h5 class="white-text">Herculean Coders</h5>
+                  </div>
+                  <div class="col l4 offset-l2 s6">
+                    <h5 class="white-text">JAVA SUCKS</h5>
+                  </div>
+                </div>
+              </div>
+              <div style="height: 30px;" class="footer-copyright">
+                <div class="container">
+                © 2014 Copyright Text
+                <a style="width:-20px;"class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                </div>
+              </div>
+            </footer>
+
+    </body>
+</html>

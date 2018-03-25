@@ -1,0 +1,57 @@
+
+        <link rel="stylesheet" href="../css/Header_Final.css">
+   </head>
+    <body bgcolor="cornsilk" data-spy="scroll" data-target="#navbar-example">
+      <nav class="nav-extended">
+          <div style="background-color: #f4511e;" class="nav-wrapper">
+            <a  href="#" class="brand-logo center">Urban Local Body</a>
+          </div>
+        </nav>
+      <nav>
+         <div class="nav-wrapper">
+           <ul style="background-color: #f4511e; text-align:center;" class="left">
+            <li><a style="height: 65px; width:240px; padding-top:10px; font-size:20px;" class='dropdown-button' href='#' data-activates="beneficiaryRegistration">Beneficiary Registration</a></li>
+                 <li><a style="height: 65px; width:240px; padding-top:10px; font-size:20px;" class="dropdown-button" href="#" data-activates="attachBeneficiary">Attach Beneficiary</a></li>
+                 <li><a style="height: 65px; width:240px; padding-top:10px; font-size:20px;" class="dropdown-button" href="#" data-activates="dpr">DPR</a></li>
+                 <li><a style="height: 65px; width:240px; padding-top:10px; font-size:20px;" class="dropdown-button" href="#" data-activates="feedback">Feedback</a></li>
+             	 <li><a style="height: 65px; width:240px; padding-top:10px; font-size:20px;" class="dropdown-button" href="#" data-activates="report">Report</a></li>
+           </ul>
+           </div>
+      </nav>
+        <nav class="nav-extended">
+        <!-- Dropdown Structure -->
+        <!--beneficiaryRegistration-->
+        <ul style="margin-top:65px;" id="beneficiaryRegistration" class="dropdown-content">
+            <li><a href="http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/Beneficiary_InSitu/InSitu_4A_BEN_Survey.jsp">Format A</a></li>
+            <li><a href="http://localhost:8080/PMAY/PMAY-U/GeneralContent/BEN_SurveyGNRL.jsp">Format B</a></li>
+        </ul>
+        <!--attachBeneficiary does'nt have a dropdown-->
+        <!--DPR dropdown-->
+        <ul id='dpr' style="margin-top:65px;" class='dropdown-content'>
+            <li><a class='dropdown-button' href='#' data-activates='dropdown2' data-hover="hover" data-alignment="right">InSitu</a></li>
+              <ul id="dropdown2"  class='dropdown-content dropdown-nested'>
+              <li><a href="http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/InSitu/7a.jsp">New DPR</a></li>
+              <li><a href="#!">Edit DPR</a></li>
+              </ul>
+            <li><a  class='dropdown-button' href='#' data-activates='dropdown2' data-hover="hover" data-alignment="right">Affordable Housing Partnership</a></li>
+              <ul id="dropdown2"  class='dropdown-content dropdown-nested'>
+              <li><a href="http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/AHP/7b.jsp">New DPR</a></li>
+              <li><a href="#!">Edit DPR</a></li>
+              </ul> 
+            <li><a class='dropdown-button' href='#' data-activates='dropdown2' data-hover="hover" data-alignment="right">Beneficiary Lead Construction</a></li>
+              <ul id="dropdown2"  class='dropdown-content dropdown-nested'>
+              <li><a href="http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/BLC/7c.jsp">New DPR</a></li>
+              <li><a href="#!">Edit DPR</a></li>
+              </ul> 
+          </ul>
+          <ul  style="margin-top:65px;" id="feedback" class="dropdown-content">
+            <li><a href="#!">CSMC</a></li>
+            <li><a href="#!">SLSMC</a></li>
+          </ul>
+          <ul style="margin-top:65px;" id="report" class="dropdown-content">
+            <li><a href="#!">InSitu</a></li>
+            <li><a href="#!">Affordable Housing Partnership</a></li>
+            <li><a href="#!">Beneficiary Lead Construction</a></li>
+          </ul>
+         </nav>
+          <div>

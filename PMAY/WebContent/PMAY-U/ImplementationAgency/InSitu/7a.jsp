@@ -11,7 +11,6 @@
     <script src="../../js/material.js"></script>
     <link rel="stylesheet" href="../../css/materialize.css">
     <link rel="stylesheet" href="../../css/material.css">
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
     <link rel="stylesheet" href="../../css/InSitu.css">
     <link rel="stylesheet" href="../../css/slumRD.css">
     <script src="../../js/stateCity.js"></script>
@@ -20,8 +19,7 @@
            $('select').material_select();
         });
      </script>
-  </head>
- <body>
+  <jsp:include page = "../../Headers/IA_Header.jspf"/>
     <nav class="inSituHead">
         <div class="nav-wrapper">
           <ul>
@@ -455,5 +453,4 @@
                                           </div>
                                         </div>
 				</form>
- </body>
-</html>
+<jsp:include page = "../../Footers/IA_Footer.jspf"/>
