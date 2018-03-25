@@ -12,16 +12,15 @@
     <link rel="stylesheet" href="../../css/materialize.css">
     <link rel="stylesheet" href="../../css/material.css">
     <link rel="stylesheet" href="../../css/style1.css">
-    <script>1
+    <script>
         $(document).ready(function() {
            $('select').material_select();
         });
      </script>
-  </head>
-     <body>
+<jsp:include page = "../../Headers/IA_Header.jspf"/>
         <nav class="header">
              <div class="nav-wrapper">
-              <p style ="padding-left: 60px; font-size: 20px; padding-top:20px;">Format for Projects under Affordable Housing in Partnership</p >
+              <p style ="padding-left: 60px; font-size: 20px; padding-top:20px;">Affordable Housing in Partnership DPR</p >
              </div>    
         </nav>  
         <form action="http://localhost:8080/PMAY/AHP_ULB_DPR_Insert" method = "POST">
@@ -473,5 +472,4 @@
                                 </div>
                       </div>
         </form>
-    </body>
-</html> 
+    <jsp:include page = "../../Footers/IA_Footer.jspf"/>

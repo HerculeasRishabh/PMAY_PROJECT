@@ -23,7 +23,7 @@
     <nav class="inSituHead">
         <div class="nav-wrapper">
           <ul>
-          <p class="brand">In-Situ Slum Redevelopment Application</p>
+          <p class="brand">In-Situ Slum Redevelopment DPR</p>
           </ul>
         </div>
       </nav>
