@@ -3,7 +3,7 @@
     Created on : 23 Mar, 2018, 3:08:52 PM
     Author     : Baseem
 --%>
-<%@page import="dpr.BLC.connection.*"%>
+<%@page import="dpr.AHP.connection.*"%>
 <%@page import="java.sql.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
@@ -11,11 +11,10 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>BLC 7C Edit</title>
+        <title>AHP 7b Edit</title>
         <script src="../../js/jquery-3.3.1.js"></script>
         <script src="../../js/materialize.js"></script>
         <script src="../../js/stateCity.js"></script>
-        <!-- <script src="../js/bootstrap.min.js"></script> -->
         <script src="../../js/material.js"></script>
         <link rel="stylesheet" href="../../css/materialize.css">
         <link rel="stylesheet" href="../../css/material.css">
@@ -25,30 +24,28 @@
                 $('select').material_select();
             });
         </script>
-        <jsp:include page = "../../Headers/IA_Header.jspf"/>
-        <nav class="header">
-             <div class="nav-wrapper">
-              <p style ="padding-left: 60px; font-size: 20px; padding-top:20px;">Beneficiary led Construction or Enhancement Edit</p >
-             </div>    
-        </nav>
-   
+		<jsp:include page = "../../Headers/IA_Header.jspf"/>
         <%
             //Creating the reference of type ResultSet
-            ResultSet RS = null;
-            DPR_BLC_connection obj = new DPR_BLC_connection();
-            RS = obj.selectRecord7cEdit(2);
+            ResultSet RS;
+            //Creating the object of AdminVewRequestBean
+            DPR_AHP_connection obj = new DPR_AHP_connection();
+            //Using the static show_Customer_NV() function of Customer
+            RS = obj.selectRecord7bEdit(1);
             int i = 1;
             RS.next();
 
-        %>
-
-        <form action="http://localhost:8080/PMAY/BLC_ULB_DPR_Update" method = "POST" style="background-color: #FFEBEE;border-width: 2px;border-radius: 20px;margin-left: 10%;width:80%;">
-            
-                    <input type = "hidden" name = "BLC_PROJECT_NO" value = "2">
+        %> 
+        <nav class="header" style="margin-left: 10%;width:80%;">
+            <div class="nav-wrapper" style="margin-left: 20%;width:80%; background-color: green;">
+                <p style ="padding-left: 60px; font-size: 20px; padding-top:20px;">Beneficiary led Construction or Enhancement</p >
+            </div>    
+        </nav>  
+        <form action="http://localhost:8080/Hack2k18_PMAY/BLC_ULB_DPR_Update" method = "POST" style="background-color: #FFEBEE;border-width: 2px;border-radius: 20px;margin-left: 10%;width:80%;">
             <div class="row">
                 <div class="col input-field s3">
                     <select required name="stateName" onChange="changecat(this.value);">
-                        <option value="<%= RS.getString(2) %>"><%= RS.getString(2) %></option>
+                        <option value="<%= RS.getString(2)%>"><%= RS.getString(2)%></option>
                         <option value="Andhra Pradesh">ANDHRA PRADESH</option>
                         <option value="Arunachal Pradesh">ARUNACHAL PRADESH</option>
                         <option value="Assam">ASSAM</option>
@@ -88,14 +85,14 @@
 
                 <div class="col input-field s3">
                     <select name="districtName" id="city">
-                        <option value="<%= RS.getString(3) %>"><%= RS.getString(3) %></option>
+                        <option value="<%= RS.getString(3)%>">Name of the District </option>
                     </select>
 
                 </div>
 
                 <div class="row">
                     <div class="col input-field s3">
-                        <input name="cityName" id="icon_prefix" type="text" value="<%= RS.getString(4) %>" class="validate">
+                        <input name="cityName" id="icon_prefix" type="text" value="<%= RS.getString(4)%>" class="validate">
                         <label for="icon_prefix">Name of the City </label>
                     </div>  
                 </div>
@@ -109,7 +106,7 @@
                 <div class="row">
                     <div class="col input-field s3">
                         <select name="SLNA_name">
-                            <option value="<%= RS.getString(7)%>"><%= RS.getString(7) %>(SLNA)</option>
+                            <option value="<%= RS.getString(7)%>"><%= RS.getString(7)%>"(SLNA)</option>
                             <option value="SLAC">SLAC</option>
                             <option value="SLSMC">SLSMC</option>
                         </select>
@@ -137,31 +134,31 @@
                     <div style="width:150px" class="col general">
                         <div class="input-field col ewsBeneficiaries">
 
-                            <input name="newBenGnrl" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(10)%>">
+                            <input name="newBenGnrl" id="icon_prefix" type="number" class="validate">
                             <label for="icon_prefix"><%= RS.getString(10)%>(GEN)</label>
                         </div>
                     </div>
                     <div style="width:150px" class="col sc">
                         <div class="input-field col ewsBeneficiaries">
-                            <input name="newBenSC" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(11)%>">
+                            <input name="newBenSC" id="icon_prefix" type="number" class="validate">
                             <label for="icon_prefix"><%= RS.getString(11)%>(SC)</label>
                         </div>
                     </div> 
                     <div style="width:150px" class="col st">
                         <div class="input-field col ewsBeneficiaries">
-                            <input name="newBenST" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(12)%>">
+                            <input name="newBenST" id="icon_prefix" type="number" class="validate">
                             <label for="icon_prefix"><%= RS.getString(12)%>(ST)</label>
                         </div>
                     </div>
                     <div style="width:150px" class="col obc">
                         <div class="input-field col ewsBeneficiaries">
-                            <input name="newBenOBC" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(13)%>" >
+                            <input name="newBenOBC" id="icon_prefix" type="number" class="validate">
                             <label for="icon_prefix"><%= RS.getString(13)%>(OBC)</label>
                         </div>
                     </div>
                     <div style="width:150px" class="col minority">
                         <div class="input-field col ewsBeneficiaries ">
-                            <input name="newBenMinority" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(14)%>">
+                            <input name="newBenMinority" id="icon_prefix" type="number" class="validate">
                             <label for="icon_prefix"><%= RS.getString(14)%>(Minority)</label>
                         </div>
                     </div>
@@ -170,31 +167,31 @@
                     <p class="row">No. of New Construction Beneficiaries covered in the Project:</p>
                     <div style="width:150px" class="col general">
                         <div class="input-field col ewsBeneficiaries">
-                            <input name="oldBenGnrl" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(15)%>">
+                            <input name="oldBenGnrl" id="icon_prefix" type="number" class="validate">
                             <label for="icon_prefix"><%= RS.getString(15)%>(GEN)</label>
                         </div>
                     </div>
                     <div style="width:150px" class="col sc">
                         <div class="input-field col ewsBeneficiaries">
-                            <input name="oldBenSC" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(16)%>">
+                            <input name="oldBenSC" id="icon_prefix" type="number" class="validate">
                             <label for="icon_prefix"><%= RS.getString(16)%>(SC)</label>
                         </div>
                     </div> 
                     <div style="width:150px" class="col st">
                         <div class="input-field col ewsBeneficiaries">
-                            <input name="oldBenST" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(17)%>">
+                            <input name="oldBenST" id="icon_prefix" type="number" class="validate">
                             <label for="icon_prefix"><%= RS.getString(17)%>(ST)</label>
                         </div>
                     </div>
                     <div style="width:150px" class="col obc">
                         <div class="input-field col ewsBeneficiaries">
-                            <input name="oldBenOBC" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(18)%>">
+                            <input name="oldBenOBC" id="icon_prefix" type="number" class="validate">
                             <label for="icon_prefix"><%= RS.getString(18)%>(OBC)</label>
                         </div>
                     </div>
                     <div style="width:150px" class="col minority">
                         <div class="input-field col ewsBeneficiaries ">
-                            <input name="oldBenMinority" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(19)%>">
+                            <input name="oldBenMinority" id="icon_prefix" type="number" class="validate">
                             <label for="icon_prefix"><%= RS.getString(19)%>(Minority)</label>
                         </div>
                     </div>
@@ -298,16 +295,16 @@
                 <p class="row">Govt. Grant required(Rs. 1.50 Lakh per eligible beneficiary)(Rs. In Lakhs):</p>
                 <div class="row houseGrant">
                     <div class="input-field col s3 houseGrant  ">
-                        <input name="stateGrant" id="icon_prefix" type="number" class="validate" step = "0.01" value = "<%= RS.getString(24)%>">
-                        <label for="icon_prefix"><%= RS.getString(24)%>(State Grant in lakh)</label>
+                        <input name="stateGrant" id="icon_prefix" type="number" class="validate" step = "0.01">
+                        <label for="icon_prefix"><%= RS.getString(24)%>(SG in lakh)</label>
                     </div>
                     <div class="input-field col s3  houseGrant">
-                        <input name="ulbGrant" id="icon_prefix" type="number" class="validate" step = "0.01" value = "<%= RS.getString(25)%>">
+                        <input name="ulbGrant" id="icon_prefix" type="number" class="validate" step = "0.01">
                         <label for="icon_prefix"><%= RS.getString(25)%>(ULB in lakh)</label>
                     </div>
                     <div class="input-field col s3 houseGrant">
-                        <input name="benShare" id="icon_prefix" type="number" class="validate" step = "0.01" value = "<%= RS.getString(26)%>">
-                        <label for="icon_prefix"><%= RS.getString(26)%>(Beneficiary Share in lakh)</label>
+                        <input name="benShare" id="icon_prefix" type="number" class="validate" step = "0.01">
+                        <label for="icon_prefix"><%= RS.getString(26)%>(BEN_S in lakh)</label>
                     </div>
                 </div>
                 <!--@-->
@@ -406,7 +403,7 @@
                 %>
             </div>
             <div class="row">
-                <p class="col">Sewerage Facility: </p>
+                <p class="col">Sewrage Facility: </p>
                 <%
                     int g = Integer.parseInt(RS.getString(30));
                     if (g == 1) {
@@ -555,8 +552,8 @@
             </div>
             <!-- <div class="row other"> -->
             <div class="input-field row s12">
-                <input name="anyOtherRequirement" id="icon_prefix" type="text" class="validate" value = "<%= RS.getString(35)%>">
-                <label for="icon_prefix"><%= RS.getString(35) %>Any Other</label>
+                <input name="anyOtherRequirement" id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">Any Other</label>
             </div>
 
             <!-- </div> -->
@@ -771,14 +768,17 @@
             </div>
             <div class="row">
                 <div class="col input-field s12">
-                    <input name="otherInfo" id="otherInfo" type="text" class="validate" value = "<%= RS.getString(44)%>">
+                    <input name="otherInfo" id="otherInfo" type="text" class="validate">
                     <label for="projectBrief"><%= RS.getString(44)%>(story)</label>
                 </div>
             </div>
+
+
+
             <div style="alignment-adjust: central;" class="row">
                 <div class="col">
                     <a class="waves-effect waves-light btn"><input name="Save" type="submit"></a>
                 </div>
-            </div> 
+            </div>
         </form>
-       <jsp:include page = "../../Footers/IA_Footer.jspf"/>
+    <jsp:include page = "../../Footers/IA_Footer.jspf"/>

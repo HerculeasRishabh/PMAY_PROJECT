@@ -66,7 +66,7 @@ public class BEN_InSitu_Register {
      * @param 
      */
     public int beneficiaryInSituInsert (String STATE, String DISTRICT, String CITY, String WARD, String SLUM_NAME, String AREA_NAME, 
-            byte HFA_VERTICAL, String FMLY_HEAD_NM, byte SEX, String FATHERS_NAME, byte fMLY_HEAD_AGE, String HOUSE_NO, String STREET, 
+            String HFA_VERTICAL, String FMLY_HEAD_NM, byte SEX, String FATHERS_NAME, byte fMLY_HEAD_AGE, String HOUSE_NO, String STREET, 
             String MOBILE_NO, String AADHAR_CARD, byte rELIGION, byte cASTE, byte dISABLE, byte mARITAL_STATUS, byte oWNS_HOUSE_LAND, 
             byte OWNERSHIP_DETAILS, BigDecimal AVG_MONTHLY_INC, String FMLY_HEAD_IMG_PATH, String DGTL_SIGN_ULB){
         
@@ -87,7 +87,7 @@ public class BEN_InSitu_Register {
             pstmt.setString(4, WARD);
             pstmt.setString(5, SLUM_NAME);
             pstmt.setString(6, AREA_NAME);
-            pstmt.setByte(7, HFA_VERTICAL);
+            pstmt.setString(7, HFA_VERTICAL);
             pstmt.setString(8, FMLY_HEAD_NM);
             pstmt.setByte(9, SEX);
             pstmt.setString(10, FATHERS_NAME);
@@ -146,6 +146,165 @@ public class BEN_InSitu_Register {
             e.printStackTrace();
         }
     }//end of BeneficiaryFamilyInsert
+    
+    /////////////////////////////////////Retrieve data from database////////////////////////////////
+    /**
+     * 
+     * This function is used to retrieve the data from the BEN_SURVEY_INSITU table
+     * to edit it
+     * 
+     * @param AADHAR_CARD
+     * @return Object Of Type ResultSet
+     */
+    
+    public ResultSet selectRecord4AEdit(String AADHAR_CARD){
+
+        sql = "SELECT * FROM BEN_SURVEY_INSITU WHERE AADHAR_CARD = ?;";
+        
+        try {
+           
+            pstmt = conn.prepareStatement(sql);
+            
+                   
+            pstmt.setString(1, AADHAR_CARD);
+
+            rs = pstmt.executeQuery();
+            
+            return rs;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return rs;
+    }//end of selectRecord4AEdit
+    
+    /**
+     * This function is used to retrieve the details of the family of the 
+     * InSitu_beneficiary from the database
+     * 
+     * @param AADHAR_CARD
+     * @return ResultSet
+     */
+    public ResultSet selectRecord4AFamilyEdit (String AADHAR_CARD){
+        
+        sql  = "SELECT * FROM BEN_FAMILY_INSITU WHERE BEN_AADHAR = ?";
+        
+        try {
+            pstmt = conn.prepareStatement(sql);
+            
+            pstmt.setString(1, AADHAR_CARD);
+            
+            rs = pstmt.executeQuery();
+            
+            return rs;
+            
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        return rs;
+        
+    }//end of selectRecord4AFamilyEdit
+    
+   
+    ///////////////////////////////////////Update Data in Database//////////////////////////////////
+    /**
+     * @author rishabhojha
+     * 
+     * This function update the data of a BEN_SURVEY_INSITU
+     * into the database.
+     * 
+     * It is executed by the ULB only!
+     * 
+     * @param 
+     */
+    public int beneficiaryInSituUpdate_IA (String STATE, String DISTRICT, String CITY, String WARD, String SLUM_NAME, String AREA_NAME, 
+            String HFA_VERTICAL, String FMLY_HEAD_NM, byte SEX, String FATHERS_NAME, byte fMLY_HEAD_AGE, String HOUSE_NO, String STREET, 
+            String MOBILE_NO, String AADHAR_CARD, byte rELIGION, byte cASTE, byte dISABLE, byte mARITAL_STATUS, byte oWNS_HOUSE_LAND, 
+            byte OWNERSHIP_DETAILS, BigDecimal AVG_MONTHLY_INC, String FMLY_HEAD_IMG_PATH, String DGTL_SIGN_ULB, String OLD_AADHAR){
+        
+        sql = "  UPDATE BEN_SURVEY_INSITU SET "
+            +"  STATE = ?, DISTRICT = ?, CITY = ?, WARD = ?, SLUM_NAME = ?, AREA_NAME = ?, "
+            +"  HFA_VERTICAL = ?, FMLY_HEAD_NM = ?, SEX = ?, FATHERS_NAME = ?, FMLY_HEAD_AGE = ?, "
+            +"  HOUSE_NO = ?, STREET = ?, MOBILE_NO = ?, AADHAR_CARD = ?, RELIGION = ?, CASTE = ?, "
+            +"  DISABLE = ?, MARITAL_STATUS = ?, OWNS_HOUSE_LAND = ?, OWNERSHIP_DETAILS = ?, "
+            +"  AVG_MONTHLY_INC = ?, FMLY_HEAD_IMG_PATH = ?, DGTL_SIGN_ULB = ? WHERE AADHAR_CARD = ?;";
+        
+        try {
+            pstmt = conn.prepareStatement(sql);
+            
+            pstmt.setString(1, STATE);
+            pstmt.setString(2, DISTRICT);
+            pstmt.setString(3, CITY);
+            pstmt.setString(4, WARD);
+            pstmt.setString(5, SLUM_NAME);
+            pstmt.setString(6, AREA_NAME);
+            pstmt.setString(7, HFA_VERTICAL);
+            pstmt.setString(8, FMLY_HEAD_NM);
+            pstmt.setByte(9, SEX);
+            pstmt.setString(10, FATHERS_NAME);
+            pstmt.setByte(11, fMLY_HEAD_AGE);
+            pstmt.setString(12, HOUSE_NO);
+            pstmt.setString(13, STREET);
+            pstmt.setString(14, MOBILE_NO);
+            pstmt.setString(15, AADHAR_CARD);
+            pstmt.setByte(16, rELIGION);
+            pstmt.setByte(17, cASTE);
+            pstmt.setByte(18, dISABLE);
+            pstmt.setByte(19, mARITAL_STATUS);
+            pstmt.setByte(20, oWNS_HOUSE_LAND);
+            pstmt.setByte(21, OWNERSHIP_DETAILS);
+            pstmt.setBigDecimal(22, AVG_MONTHLY_INC);
+            pstmt.setString(23, FMLY_HEAD_IMG_PATH);
+            pstmt.setString(24, DGTL_SIGN_ULB);
+            pstmt.setString(25, OLD_AADHAR);
+            
+            counter = pstmt.executeUpdate();
+            
+            System.out.println(counter);
+            return counter;
+            
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return counter;
+    }//end of beneficiaryInSituUpdate_IA
+    
+    
+    
+    /////////////////////////////////////// DELETE QUERIES ON DATABASE ////////////////////////////////
+    
+    /**
+     * The given query deletes the table of the ben_insitu_family
+     * before new family data for that beneficiary can be inserted
+     * 
+     * @param BEN_AADHAR
+     * @return
+     */
+    public int beneficiaryInSituFamily_Delete (String BEN_AADHAR){
+        sql = "DELETE FROM BEN_FAMILY_INSITU WHERE BEN_AADHAR = ?;";
+        
+        try {
+            pstmt = conn.prepareStatement(sql);
+            
+            pstmt.setString(1, BEN_AADHAR);
+            
+            counter = pstmt.executeUpdate();
+            
+            return counter;
+            
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return counter;
+        
+    }//end of beneficiaryInSituFamily_Delete
+    
+
+
 
 
 }//end of class

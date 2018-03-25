@@ -3,35 +3,30 @@ package beneficiary.InSitu.Servlet;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import java.sql.*;
-import java.text.SimpleDateFormat;
-
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.Part;
 
-import beneficiary.InSitu.connection.*;
-/**
- * Servlet implementation class BEN_InSitu_Registration
- */
-@WebServlet("/BEN_InSitu_Registration")
-@MultipartConfig(fileSizeThreshold=1024*1024*2,
-maxFileSize=1024*1024*5)
-public class BEN_InSitu_Registration extends HttpServlet {
+import beneficiary.InSitu.connection.BEN_InSitu_Register;
 
+/**
+ * Servlet implementation class BEN_InSitu_ULB_Update
+ */
+@WebServlet("/BEN_InSitu_ULB_Update")
+public class BEN_InSitu_ULB_Update extends HttpServlet {
     private static final String SAVE_DIR="ImagesBeneficiaryInSitu";
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BEN_InSitu_Registration() {
+    public BEN_InSitu_ULB_Update() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -54,7 +49,7 @@ public class BEN_InSitu_Registration extends HttpServlet {
         String WARD = request.getParameter ("wardName");
         String SLUM_NAME = request.getParameter ("slumName");
         String AREA_NAME = request.getParameter ("areaName");
-        String HFA_VERTICAL = request.getParameter("compName"); 
+        String HFA_VERTICAL = request.getParameter ("vertical"); 
         String FMLY_HEAD_NM = request.getParameter ("famHeadName");
         byte SEX = Byte.parseByte(request.getParameter ("gender"));
         String FATHERS_NAME = request.getParameter ("fathersName");
@@ -73,6 +68,7 @@ public class BEN_InSitu_Registration extends HttpServlet {
         Part IMG_PATH = request.getPart ("imageBeneficiary");
         //String DGTL_SIGN_ULB = request.getParameter ("");
         String DGTL_SIGN_ULB = "Test1";
+        String OLD_AADHAR = request.getParameter("old_aadhar");
         
         String time = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Timestamp(System.currentTimeMillis()));
         IMG_PATH.write(savePath + File.separator + time + ".jpg" );
@@ -80,12 +76,13 @@ public class BEN_InSitu_Registration extends HttpServlet {
         
         BEN_InSitu_Register obj = new BEN_InSitu_Register();
         
-        int run = obj.beneficiaryInSituInsert(STATE, DISTRICT, CITY, WARD, SLUM_NAME, AREA_NAME, HFA_VERTICAL, FMLY_HEAD_NM,
-                SEX, FATHERS_NAME, FMLY_HEAD_AGE, HOUSE_NO, STREET, MOBILE_NO, AADHAR_CARD, 
-                RELIGION, CASTE, DISABLE, MARITAL_STATUS, OWNS_HOUSE_LAND, OWNERSHIP_DETAILS, 
-                AVG_MONTHLY_INC, FMLY_HEAD_IMG_PATH, DGTL_SIGN_ULB);
+        int run = obj.beneficiaryInSituUpdate_IA(STATE, DISTRICT, CITY, WARD, SLUM_NAME, AREA_NAME, HFA_VERTICAL, FMLY_HEAD_NM, SEX, FATHERS_NAME, 
+                FMLY_HEAD_AGE, HOUSE_NO, STREET, MOBILE_NO, AADHAR_CARD, RELIGION, CASTE, DISABLE, MARITAL_STATUS, OWNS_HOUSE_LAND, OWNERSHIP_DETAILS, 
+                AVG_MONTHLY_INC, FMLY_HEAD_IMG_PATH, DGTL_SIGN_ULB, OLD_AADHAR);
         
         if (run != -1 ){
+            obj.beneficiaryInSituFamily_Delete(OLD_AADHAR);
+            
             String [] fmlyNames = request.getParameterValues("nameFam");
             String [] fmlyGender  = request.getParameterValues("memberGenderFam");
             String [] fmlyRelation = request.getParameterValues("memberRelationFam");
@@ -100,8 +97,7 @@ public class BEN_InSitu_Registration extends HttpServlet {
             
         }
 
-        
-        
+	    
 	}
 
 	/**

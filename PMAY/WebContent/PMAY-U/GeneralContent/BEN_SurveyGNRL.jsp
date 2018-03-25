@@ -20,7 +20,6 @@
     
   <jsp:include page = "../Headers/IA_Header.jspf"/>
   
-    <body>
         <nav class="topHead">
          
             <div class="nav-wrapper">

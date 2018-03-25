@@ -151,5 +151,50 @@ public class DPR_AHP_connection {
         
     }//end of ahp_DPR_Insert
     
+    /////////////////////////////////////Retrieve data from database////////////////////////////////
+    /**
+     * 
+     * This function is used to retrieve the data from the AHP_DPR table
+     * to edit it
+     * 
+     * @param AHP_PROJECT_NO
+     * @return Object Of Type ResultSet
+     */
+    
+    public ResultSet selectRecord7bEdit(int AHP_PROJECT_NO){
+
+        sql = "SELECT * FROM AHP_DPR WHERE AHP_PROJECT_NO = ?;";
+        
+        try {
+           
+            pstmt = conn.prepareStatement(sql);
+            
+                   
+            pstmt.setInt(1, AHP_PROJECT_NO);
+
+            rs = pstmt.executeQuery();
+            
+            return rs;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return rs;
+    }//end of selectRecord7cEdit
+    
+   
+    ///////////////////////////////////////Update Data in Database//////////////////////////////////
+    /**
+     * @author rishabhojha
+     * 
+     * This function update the data of a AHP DPR
+     * into the database.
+     * 
+     * It is executed by the ULB only!
+     * 
+     * @param 
+     */
+
+    
 
 }
