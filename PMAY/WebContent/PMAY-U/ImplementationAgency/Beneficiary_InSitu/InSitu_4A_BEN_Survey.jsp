@@ -120,9 +120,9 @@
                 <div class="col input-field s3">
                     <select required name="gender">
                         <option value="">Select Sex</option>
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
-                        <option value="3">Other</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
             </div>
@@ -172,20 +172,20 @@
 				                    <div class="col input-field s1">
 				                        <select name="memberGenderFam">
 				                            <option value="">Sex</option>
-				                            <option value="01">Male</option>
-				                            <option value="02">Female</option>
-				                            <option value="03">Other</option>
+				                            <option value="Male">Male</option>
+				                            <option value="Female">Female</option>
+				                            <option value="Other">Other</option>
 				                        </select>
 				                    </div>
 				                    <div class="col input-field s1">
 				                        <select name="memberRelationFam">
 				                            <option value="">Relation</option>
-				                            <option value="01">Mother</option>
-				                            <option value="02">Father</option>
-				                            <option value="03">Sister</option>
-				                            <option value="02">Husband</option>
-				                            <option value="02">Son</option>
-				                            <option value="02">Daughter</option>
+				                            <option value="Mother">Mother</option>
+				                            <option value="Father">Father</option>
+				                            <option value="Sister">Sister</option>
+				                            <option value="Husband">Husband</option>
+				                            <option value="Son">Son</option>
+				                            <option value="Daughter">Daughter</option>
 				                        </select>
 				                    </div>
 				                    <div class="col input-field s1">
@@ -204,22 +204,22 @@
                 <div class="col input-field s3">
                     <select required name="religionName">
                         <option value="">Select Religion</option>
-                        <option value="1">Hindu</option>
-                        <option value="2">Islam</option>
-                        <option value="3">Christianity</option>
-                        <option value="3">Sikhism</option>
-                        <option value="3">Buddhism</option>
-                        <option value="3">Jainism</option>
-                        <option value="3">Other</option>
+                        <option value="Hindu">Hindu</option>
+                        <option value="Islam">Islam</option>
+                        <option value="Christanity">Christianity</option>
+                        <option value="Sikhism">Sikhism</option>
+                        <option value="Buddhism">Buddhism</option>
+                        <option value="Jainism">Jainism</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <div class="col input-field s3">
                     <select required name="casteName">
                         <option value="">Select caste</option>
-                        <option value="1">General</option>
-                        <option value="2">SC</option>
-                        <option value="3">ST</option>
-                        <option value="4">OBC</option>
+                        <option value="General">General</option>
+                        <option value="SC">SC</option>
+                        <option value="ST">ST</option>
+                        <option value="OBC">OBC</option>
                     </select>
                 </div>
             </div>
@@ -237,9 +237,9 @@
                     <div class="col">
                                <select class="newFont" name="maritalStatus">
                                     <option value="">Select Marital Status</option>
-                                    <option value="1">Married</option>
-                                    <option value="2">Un-married</option>
-                        			<option value="3">Single Woman or Widow</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Un-married">Un-married</option>
+                        			<option value="Single Woman or Widow">Single Woman or Widow</option>
                                 </select>
                        </div>
                     </div>
@@ -261,8 +261,8 @@
                     <div class="col input-field s4"> 
                         <select name="ownershipDetails">
                             <option value="0">Enter Ownership Details of the Existing House</option>
-                            <option value="1">Owner</option>
-                            <option value="2">Co-Owner</option>
+                            <option value="Owner">Owner</option>
+                            <option value="Co-Owner">Co-Owner</option>
                         </select>
                         </div>
                         

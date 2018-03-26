@@ -44,7 +44,7 @@
 
         <form action="http://localhost:8080/PMAY/BLC_ULB_DPR_Update" method = "POST" style="background-color: #FFEBEE;border-width: 2px;border-radius: 20px;margin-left: 10%;width:80%;">
             
-                    <input type = "hidden" name = "BLC_PROJECT_NO" value = "2">
+            <input type = "hidden" name = "BLC_PROJECT_NO" value = "2">
             <div class="row">
                 <div class="col input-field s3">
                     <select required name="stateName" onChange="changecat(this.value);">

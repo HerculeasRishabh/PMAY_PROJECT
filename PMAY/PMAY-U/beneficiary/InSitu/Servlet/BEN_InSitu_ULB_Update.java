@@ -20,7 +20,7 @@ import beneficiary.InSitu.connection.BEN_InSitu_Register;
  */
 @WebServlet("/BEN_InSitu_ULB_Update")
 public class BEN_InSitu_ULB_Update extends HttpServlet {
-    private static final String SAVE_DIR="ImagesBeneficiaryInSitu";
+   // private static final String SAVE_DIR="ImagesBeneficiaryInSitu";
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -37,11 +37,11 @@ public class BEN_InSitu_ULB_Update extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	    response.setContentType("text/html");
-        String savePath = "/Users/rishabhojha/git/PMAY_PROJECT/PMAY/WebContent/PMAY-U" + File.separator + SAVE_DIR;
+        /*String savePath = "/Users/rishabhojha/git/PMAY_PROJECT/PMAY/WebContent/PMAY-U" + File.separator + SAVE_DIR;
         File fileSaveDir=new File(savePath);
         if(!fileSaveDir.exists()){
             fileSaveDir.mkdir();
-        }
+        }*/
         
         String STATE = request.getParameter ("stateName");
         String DISTRICT = request.getParameter ("districtName");
@@ -51,34 +51,34 @@ public class BEN_InSitu_ULB_Update extends HttpServlet {
         String AREA_NAME = request.getParameter ("areaName");
         String HFA_VERTICAL = request.getParameter ("vertical"); 
         String FMLY_HEAD_NM = request.getParameter ("famHeadName");
-        byte SEX = Byte.parseByte(request.getParameter ("gender"));
+        String SEX = request.getParameter ("gender");
         String FATHERS_NAME = request.getParameter ("fathersName");
-        byte FMLY_HEAD_AGE = Byte.parseByte(request.getParameter ("headAge"));
+        String FMLY_HEAD_AGE = request.getParameter ("headAge");
         String HOUSE_NO = request.getParameter ("addressHouseNumber");
         String STREET = request.getParameter ("addressStreetName");
         String MOBILE_NO = request.getParameter ("mobileNumber");
         String AADHAR_CARD = request.getParameter ("aadharNumber");
-        byte RELIGION = Byte.parseByte(request.getParameter ("religionName"));
-        byte CASTE = Byte.parseByte(request.getParameter ("casteName"));
-        byte DISABLE = Byte.parseByte(request.getParameter ("disability"));
-        byte MARITAL_STATUS = Byte.parseByte(request.getParameter ("maritalStatus"));
-        byte OWNS_HOUSE_LAND = Byte.parseByte(request.getParameter ("ownsHouseLand"));
-        byte OWNERSHIP_DETAILS = Byte.parseByte(request.getParameter ("ownershipDetails"));
-        BigDecimal AVG_MONTHLY_INC = new BigDecimal (request.getParameter ("monthlyIncome"));
-        Part IMG_PATH = request.getPart ("imageBeneficiary");
+        String RELIGION = request.getParameter ("religionName");
+        String CASTE = request.getParameter ("casteName");
+        String DISABLE = request.getParameter ("disability");
+        String MARITAL_STATUS = request.getParameter ("maritalStatus");
+        String OWNS_HOUSE_LAND = request.getParameter ("ownsHouseLand");
+        String OWNERSHIP_DETAILS = request.getParameter ("ownershipDetails");
+        String AVG_MONTHLY_INC = request.getParameter ("monthlyIncome");
+       // Part IMG_PATH = request.getPart ("imageBeneficiary");
         //String DGTL_SIGN_ULB = request.getParameter ("");
         String DGTL_SIGN_ULB = "Test1";
         String OLD_AADHAR = request.getParameter("old_aadhar");
         
-        String time = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Timestamp(System.currentTimeMillis()));
+       /* String time = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Timestamp(System.currentTimeMillis()));
         IMG_PATH.write(savePath + File.separator + time + ".jpg" );
-        String FMLY_HEAD_IMG_PATH= savePath + File.separator + time + ".jpg";
+        String FMLY_HEAD_IMG_PATH= savePath + File.separator + time + ".jpg";*/
         
         BEN_InSitu_Register obj = new BEN_InSitu_Register();
         
         int run = obj.beneficiaryInSituUpdate_IA(STATE, DISTRICT, CITY, WARD, SLUM_NAME, AREA_NAME, HFA_VERTICAL, FMLY_HEAD_NM, SEX, FATHERS_NAME, 
-                FMLY_HEAD_AGE, HOUSE_NO, STREET, MOBILE_NO, AADHAR_CARD, RELIGION, CASTE, DISABLE, MARITAL_STATUS, OWNS_HOUSE_LAND, OWNERSHIP_DETAILS, 
-                AVG_MONTHLY_INC, FMLY_HEAD_IMG_PATH, DGTL_SIGN_ULB, OLD_AADHAR);
+                Integer.parseInt(FMLY_HEAD_AGE), HOUSE_NO, STREET, MOBILE_NO, AADHAR_CARD, RELIGION, CASTE, Byte.parseByte(DISABLE), MARITAL_STATUS, Byte.parseByte(OWNS_HOUSE_LAND), OWNERSHIP_DETAILS, 
+                new BigDecimal (AVG_MONTHLY_INC), DGTL_SIGN_ULB, OLD_AADHAR);
         
         if (run != -1 ){
             obj.beneficiaryInSituFamily_Delete(OLD_AADHAR);
@@ -91,8 +91,8 @@ public class BEN_InSitu_ULB_Update extends HttpServlet {
             
             for (int i = 0; i < fmlyNames.length; i++){
                 
-                obj.BeneficiaryFamilyInsert(AADHAR_CARD, fmlyNames[i], Byte.parseByte(fmlyRelation[i]), Byte.parseByte(fmlyGender[i]),
-                                        Byte.parseByte(fmlyAge[i]), fmlyAadhar[i]);
+                obj.BeneficiaryFamilyInsert(AADHAR_CARD, fmlyNames[i], fmlyGender[i], fmlyRelation[i],
+                        Integer.parseInt(fmlyAge[i]), fmlyAadhar[i]);
             }
             
         }

@@ -66,9 +66,9 @@ public class BEN_InSitu_Register {
      * @param 
      */
     public int beneficiaryInSituInsert (String STATE, String DISTRICT, String CITY, String WARD, String SLUM_NAME, String AREA_NAME, 
-            String HFA_VERTICAL, String FMLY_HEAD_NM, byte SEX, String FATHERS_NAME, byte fMLY_HEAD_AGE, String HOUSE_NO, String STREET, 
-            String MOBILE_NO, String AADHAR_CARD, byte rELIGION, byte cASTE, byte dISABLE, byte mARITAL_STATUS, byte oWNS_HOUSE_LAND, 
-            byte OWNERSHIP_DETAILS, BigDecimal AVG_MONTHLY_INC, String FMLY_HEAD_IMG_PATH, String DGTL_SIGN_ULB){
+            String HFA_VERTICAL, String FMLY_HEAD_NM, String SEX, String FATHERS_NAME, int fMLY_HEAD_AGE, String HOUSE_NO, String STREET, 
+            String MOBILE_NO, String AADHAR_CARD, String rELIGION, String cASTE, byte dISABLE, String mARITAL_STATUS, byte oWNS_HOUSE_LAND, 
+            String OWNERSHIP_DETAILS, BigDecimal AVG_MONTHLY_INC, String FMLY_HEAD_IMG_PATH, String DGTL_SIGN_ULB){
         
         sql = " INSERT INTO BEN_SURVEY_INSITU ("
              +" STATE, DISTRICT, CITY, WARD, SLUM_NAME, AREA_NAME, HFA_VERTICAL, FMLY_HEAD_NM, SEX, FATHERS_NAME, FMLY_HEAD_AGE,"
@@ -89,19 +89,19 @@ public class BEN_InSitu_Register {
             pstmt.setString(6, AREA_NAME);
             pstmt.setString(7, HFA_VERTICAL);
             pstmt.setString(8, FMLY_HEAD_NM);
-            pstmt.setByte(9, SEX);
+            pstmt.setString(9, SEX);
             pstmt.setString(10, FATHERS_NAME);
-            pstmt.setByte(11, fMLY_HEAD_AGE);
+            pstmt.setInt(11, fMLY_HEAD_AGE);
             pstmt.setString(12, HOUSE_NO);
             pstmt.setString(13, STREET);
             pstmt.setString(14, MOBILE_NO);
             pstmt.setString(15, AADHAR_CARD);
-            pstmt.setByte(16, rELIGION);
-            pstmt.setByte(17, cASTE);
+            pstmt.setString(16, rELIGION);
+            pstmt.setString(17, cASTE);
             pstmt.setByte(18, dISABLE);
-            pstmt.setByte(19, mARITAL_STATUS);
+            pstmt.setString(19, mARITAL_STATUS);
             pstmt.setByte(20, oWNS_HOUSE_LAND);
-            pstmt.setByte(21, OWNERSHIP_DETAILS);
+            pstmt.setString(21, OWNERSHIP_DETAILS);
             pstmt.setBigDecimal(22, AVG_MONTHLY_INC);
             pstmt.setString(23, FMLY_HEAD_IMG_PATH);
             pstmt.setString(24, DGTL_SIGN_ULB);
@@ -125,8 +125,8 @@ public class BEN_InSitu_Register {
      * 
      * @parm
      */
-    public void BeneficiaryFamilyInsert (String BEN_AADHAR, String fmlyName, byte fmlyGender, byte fmlyRelation,
-                                        byte fmlyAge, String fmlyAadhar){
+    public void BeneficiaryFamilyInsert (String BEN_AADHAR, String fmlyName, String fmlyGender, String fmlyRelation,
+                                        int fmlyAge, String fmlyAadhar){
         
         sql = "INSERT INTO BEN_FAMILY_INSITU VALUES (?, ?, ?, ?, ?, ?)";
         
@@ -135,9 +135,9 @@ public class BEN_InSitu_Register {
             
             pstmt.setString(1, BEN_AADHAR);
             pstmt.setString(2, fmlyName);
-            pstmt.setByte(3, fmlyRelation);
-            pstmt.setByte(4, fmlyGender);
-            pstmt.setByte(5, fmlyAge);
+            pstmt.setString(3, fmlyGender);
+            pstmt.setString(4, fmlyRelation);
+            pstmt.setInt(5, fmlyAge);
             pstmt.setString(6, fmlyAadhar);
             
             counter = pstmt.executeUpdate();
@@ -220,16 +220,16 @@ public class BEN_InSitu_Register {
      * @param 
      */
     public int beneficiaryInSituUpdate_IA (String STATE, String DISTRICT, String CITY, String WARD, String SLUM_NAME, String AREA_NAME, 
-            String HFA_VERTICAL, String FMLY_HEAD_NM, byte SEX, String FATHERS_NAME, byte fMLY_HEAD_AGE, String HOUSE_NO, String STREET, 
-            String MOBILE_NO, String AADHAR_CARD, byte rELIGION, byte cASTE, byte dISABLE, byte mARITAL_STATUS, byte oWNS_HOUSE_LAND, 
-            byte OWNERSHIP_DETAILS, BigDecimal AVG_MONTHLY_INC, String FMLY_HEAD_IMG_PATH, String DGTL_SIGN_ULB, String OLD_AADHAR){
+            String HFA_VERTICAL, String FMLY_HEAD_NM, String SEX, String FATHERS_NAME, int fMLY_HEAD_AGE, String HOUSE_NO, String STREET, 
+            String MOBILE_NO, String AADHAR_CARD, String rELIGION, String cASTE, byte dISABLE, String mARITAL_STATUS, byte oWNS_HOUSE_LAND, 
+            String OWNERSHIP_DETAILS, BigDecimal AVG_MONTHLY_INC, String DGTL_SIGN_ULB, String OLD_AADHAR){
         
         sql = "  UPDATE BEN_SURVEY_INSITU SET "
             +"  STATE = ?, DISTRICT = ?, CITY = ?, WARD = ?, SLUM_NAME = ?, AREA_NAME = ?, "
             +"  HFA_VERTICAL = ?, FMLY_HEAD_NM = ?, SEX = ?, FATHERS_NAME = ?, FMLY_HEAD_AGE = ?, "
             +"  HOUSE_NO = ?, STREET = ?, MOBILE_NO = ?, AADHAR_CARD = ?, RELIGION = ?, CASTE = ?, "
             +"  DISABLE = ?, MARITAL_STATUS = ?, OWNS_HOUSE_LAND = ?, OWNERSHIP_DETAILS = ?, "
-            +"  AVG_MONTHLY_INC = ?, FMLY_HEAD_IMG_PATH = ?, DGTL_SIGN_ULB = ? WHERE AADHAR_CARD = ?;";
+            +"  AVG_MONTHLY_INC = ?, DGTL_SIGN_ULB = ? WHERE AADHAR_CARD = ?;";
         
         try {
             pstmt = conn.prepareStatement(sql);
@@ -242,23 +242,22 @@ public class BEN_InSitu_Register {
             pstmt.setString(6, AREA_NAME);
             pstmt.setString(7, HFA_VERTICAL);
             pstmt.setString(8, FMLY_HEAD_NM);
-            pstmt.setByte(9, SEX);
+            pstmt.setString(9, SEX);
             pstmt.setString(10, FATHERS_NAME);
-            pstmt.setByte(11, fMLY_HEAD_AGE);
+            pstmt.setInt(11, fMLY_HEAD_AGE);
             pstmt.setString(12, HOUSE_NO);
             pstmt.setString(13, STREET);
             pstmt.setString(14, MOBILE_NO);
             pstmt.setString(15, AADHAR_CARD);
-            pstmt.setByte(16, rELIGION);
-            pstmt.setByte(17, cASTE);
+            pstmt.setString(16, rELIGION);
+            pstmt.setString(17, cASTE);
             pstmt.setByte(18, dISABLE);
-            pstmt.setByte(19, mARITAL_STATUS);
+            pstmt.setString(19, mARITAL_STATUS);
             pstmt.setByte(20, oWNS_HOUSE_LAND);
-            pstmt.setByte(21, OWNERSHIP_DETAILS);
+            pstmt.setString(21, OWNERSHIP_DETAILS);
             pstmt.setBigDecimal(22, AVG_MONTHLY_INC);
-            pstmt.setString(23, FMLY_HEAD_IMG_PATH);
-            pstmt.setString(24, DGTL_SIGN_ULB);
-            pstmt.setString(25, OLD_AADHAR);
+            pstmt.setString(23, DGTL_SIGN_ULB);
+            pstmt.setString(24, OLD_AADHAR);
             
             counter = pstmt.executeUpdate();
             

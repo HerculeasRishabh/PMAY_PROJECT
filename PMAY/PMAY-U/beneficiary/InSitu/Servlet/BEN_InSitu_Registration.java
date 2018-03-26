@@ -56,19 +56,19 @@ public class BEN_InSitu_Registration extends HttpServlet {
         String AREA_NAME = request.getParameter ("areaName");
         String HFA_VERTICAL = request.getParameter("compName"); 
         String FMLY_HEAD_NM = request.getParameter ("famHeadName");
-        byte SEX = Byte.parseByte(request.getParameter ("gender"));
+        String SEX = request.getParameter ("gender");
         String FATHERS_NAME = request.getParameter ("fathersName");
         byte FMLY_HEAD_AGE = Byte.parseByte(request.getParameter ("headAge"));
         String HOUSE_NO = request.getParameter ("addressHouseNumber");
         String STREET = request.getParameter ("addressStreetName");
         String MOBILE_NO = request.getParameter ("mobileNumber");
         String AADHAR_CARD = request.getParameter ("aadharNumber");
-        byte RELIGION = Byte.parseByte(request.getParameter ("religionName"));
-        byte CASTE = Byte.parseByte(request.getParameter ("casteName"));
+        String RELIGION = request.getParameter ("religionName");
+        String CASTE = request.getParameter ("casteName");
         byte DISABLE = Byte.parseByte(request.getParameter ("disability"));
-        byte MARITAL_STATUS = Byte.parseByte(request.getParameter ("maritalStatus"));
+        String MARITAL_STATUS = request.getParameter ("maritalStatus");
         byte OWNS_HOUSE_LAND = Byte.parseByte(request.getParameter ("ownsHouseLand"));
-        byte OWNERSHIP_DETAILS = Byte.parseByte(request.getParameter ("ownershipDetails"));
+        String OWNERSHIP_DETAILS = request.getParameter ("ownershipDetails");
         BigDecimal AVG_MONTHLY_INC = new BigDecimal (request.getParameter ("monthlyIncome"));
         Part IMG_PATH = request.getPart ("imageBeneficiary");
         //String DGTL_SIGN_ULB = request.getParameter ("");
@@ -94,8 +94,8 @@ public class BEN_InSitu_Registration extends HttpServlet {
             
             for (int i = 0; i < fmlyNames.length; i++){
                 
-                obj.BeneficiaryFamilyInsert(AADHAR_CARD, fmlyNames[i], Byte.parseByte(fmlyRelation[i]), Byte.parseByte(fmlyGender[i]),
-                                        Byte.parseByte(fmlyAge[i]), fmlyAadhar[i]);
+                obj.BeneficiaryFamilyInsert(AADHAR_CARD, fmlyNames[i], fmlyGender[i], fmlyRelation[i],
+                                        Integer.parseInt(fmlyAge[i]), fmlyAadhar[i]);
             }
             
         }
