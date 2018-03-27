@@ -85,7 +85,7 @@
 
                 <div class="col input-field s3">
                     <select name="districtName" id="city">
-                        <option value="<%= RS.getString(3)%>">Name of the District </option>
+                        <option value="<%= RS.getString(3)%>"><%= RS.getString(3)%>(Name of the District) </option>
                     </select>
 
                 </div>
@@ -93,20 +93,20 @@
                 <div class="row">
                     <div class="col input-field s3">
                         <input name="cityName" id="icon_prefix" type="text" value="<%= RS.getString(4)%>" class="validate">
-                        <label for="icon_prefix">Name of the City </label>
+                        <label for="icon_prefix"><%= RS.getString(4)%>(Name of the City) </label>
                     </div>  
                 </div>
                 <div class="row">
                     <div class="col input-field s3">
                         <input name="projectName" id="project_name" type="text" value="<%= RS.getString(5)%>" class="validate">
-                        <label for="project_name">Project Name</label>
+                        <label for="project_name"><%= RS.getString(5)%>(Project Name)</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col input-field s3">
                         <select name="SLNA_name">
-                            <option value="<%= RS.getString(7)%>"><%= RS.getString(7)%>"(SLNA)</option>
+                            <option value="<%= RS.getString(7)%>"><%= RS.getString(7)%>(SLNA)</option>
                             <option value="SLAC">SLAC</option>
                             <option value="SLSMC">SLSMC</option>
                         </select>
@@ -134,31 +134,31 @@
                     <div style="width:150px" class="col general">
                         <div class="input-field col ewsBeneficiaries">
 
-                            <input name="newBenGnrl" id="icon_prefix" type="number" class="validate">
+                            <input name="newBenGnrl" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(10)%>">
                             <label for="icon_prefix"><%= RS.getString(10)%>(GEN)</label>
                         </div>
                     </div>
                     <div style="width:150px" class="col sc">
                         <div class="input-field col ewsBeneficiaries">
-                            <input name="newBenSC" id="icon_prefix" type="number" class="validate">
+                            <input name="newBenSC" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(11)%>">
                             <label for="icon_prefix"><%= RS.getString(11)%>(SC)</label>
                         </div>
                     </div> 
                     <div style="width:150px" class="col st">
                         <div class="input-field col ewsBeneficiaries">
-                            <input name="newBenST" id="icon_prefix" type="number" class="validate">
+                            <input name="newBenST" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(12)%>">
                             <label for="icon_prefix"><%= RS.getString(12)%>(ST)</label>
                         </div>
                     </div>
                     <div style="width:150px" class="col obc">
                         <div class="input-field col ewsBeneficiaries">
-                            <input name="newBenOBC" id="icon_prefix" type="number" class="validate">
+                            <input name="newBenOBC" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(13)%>">
                             <label for="icon_prefix"><%= RS.getString(13)%>(OBC)</label>
                         </div>
                     </div>
                     <div style="width:150px" class="col minority">
                         <div class="input-field col ewsBeneficiaries ">
-                            <input name="newBenMinority" id="icon_prefix" type="number" class="validate">
+                            <input name="newBenMinority" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(14)%>">
                             <label for="icon_prefix"><%= RS.getString(14)%>(Minority)</label>
                         </div>
                     </div>
@@ -167,31 +167,31 @@
                     <p class="row">No. of New Construction Beneficiaries covered in the Project:</p>
                     <div style="width:150px" class="col general">
                         <div class="input-field col ewsBeneficiaries">
-                            <input name="oldBenGnrl" id="icon_prefix" type="number" class="validate">
+                            <input name="oldBenGnrl" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(15)%>">
                             <label for="icon_prefix"><%= RS.getString(15)%>(GEN)</label>
                         </div>
                     </div>
                     <div style="width:150px" class="col sc">
                         <div class="input-field col ewsBeneficiaries">
-                            <input name="oldBenSC" id="icon_prefix" type="number" class="validate">
+                            <input name="oldBenSC" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(16)%>">
                             <label for="icon_prefix"><%= RS.getString(16)%>(SC)</label>
                         </div>
                     </div> 
                     <div style="width:150px" class="col st">
                         <div class="input-field col ewsBeneficiaries">
-                            <input name="oldBenST" id="icon_prefix" type="number" class="validate">
+                            <input name="oldBenST" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(17)%>">
                             <label for="icon_prefix"><%= RS.getString(17)%>(ST)</label>
                         </div>
                     </div>
                     <div style="width:150px" class="col obc">
                         <div class="input-field col ewsBeneficiaries">
-                            <input name="oldBenOBC" id="icon_prefix" type="number" class="validate">
+                            <input name="oldBenOBC" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(18)%>">
                             <label for="icon_prefix"><%= RS.getString(18)%>(OBC)</label>
                         </div>
                     </div>
                     <div style="width:150px" class="col minority">
                         <div class="input-field col ewsBeneficiaries ">
-                            <input name="oldBenMinority" id="icon_prefix" type="number" class="validate">
+                            <input name="oldBenMinority" id="icon_prefix" type="number" class="validate" value = "<%= RS.getString(19)%>">
                             <label for="icon_prefix"><%= RS.getString(19)%>(Minority)</label>
                         </div>
                     </div>

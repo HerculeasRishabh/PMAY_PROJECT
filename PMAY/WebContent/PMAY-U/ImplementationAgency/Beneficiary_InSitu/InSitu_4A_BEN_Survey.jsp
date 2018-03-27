@@ -284,7 +284,6 @@
                             <input class="file-path validate" type="text">
                         </div>
                     </div>
-    
                 </div>
                 <div class="row number">
                         <div class="input-field col proName">

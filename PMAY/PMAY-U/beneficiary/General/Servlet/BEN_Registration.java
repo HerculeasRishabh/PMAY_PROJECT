@@ -42,7 +42,7 @@ public class BEN_Registration extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	    response.setContentType("text/html");
+	     response.setContentType("text/html");
          String savePath = "/Users/rishabhojha/git/PMAY_PROJECT/PMAY/WebContent/PMAY-U" + File.separator + SAVE_DIR;
          File fileSaveDir=new File(savePath);
          if(!fileSaveDir.exists()){
@@ -55,32 +55,32 @@ public class BEN_Registration extends HttpServlet {
          String WARD = request.getParameter ("wardName");
          String SLUM_NAME = request.getParameter ("slumName");
          String AREA_NAME = request.getParameter ("areaName");
-         byte HFA_VERTICAL = Byte.parseByte(request.getParameter("compName")); 
+         String HFA_VERTICAL = request.getParameter("compName"); 
          String FMLY_HEAD_NM = request.getParameter ("famHeadName");
-         byte SEX = Byte.parseByte(request.getParameter ("gender"));
+         String SEX = request.getParameter ("gender");
          String FATHERS_NAME = request.getParameter ("fathersName");
          byte FMLY_HEAD_AGE = Byte.parseByte(request.getParameter ("headAge"));
          String HOUSE_NO = request.getParameter ("addressHouseNumber");
          String STREET = request.getParameter ("addressStreetName");
          String MOBILE_NO = request.getParameter ("mobileNumber");
-         byte OWNERSHIP = Byte.parseByte(request.getParameter ("ownershipDetails"));
-         byte HOUSE_TYPE = Byte.parseByte(request.getParameter ("houseType"));
+         String OWNERSHIP = request.getParameter ("ownershipDetails");
+         String HOUSE_TYPE = request.getParameter ("houseType");
          byte NO_ROOMS = Byte.parseByte(request.getParameter ("noOfRooms"));
          String AADHAR_CARD = request.getParameter ("aadharNumber");
-         byte RELIGION = Byte.parseByte(request.getParameter ("religionName"));
-         byte CASTE = Byte.parseByte(request.getParameter ("casteName"));
+         String RELIGION = request.getParameter ("religionName");
+         String CASTE = request.getParameter ("casteName");
          String BANK_NM = request.getParameter ("bankName");
          String BANK_ACC_NO = request.getParameter ("accountNumber");
          String BRANCH_NM = request.getParameter ("branchName");
-         byte YEARS_STAY = Byte.parseByte(request.getParameter ("yearStay"));
+         String YEARS_STAY = request.getParameter ("yearStay");
          BigDecimal SIZE_DU = new BigDecimal (request.getParameter ("dwellingUnits"));
          byte DISABLE = Byte.parseByte(request.getParameter ("disability"));
-         byte MARITAL_STATUS = Byte.parseByte(request.getParameter ("maritalStatus"));
+         String MARITAL_STATUS = request.getParameter ("maritalStatus");
          byte OWNS_HOUSE_LAND = Byte.parseByte(request.getParameter ("ownsHouseLand"));
-         byte EMPLOYMENT = Byte.parseByte(request.getParameter ("employmentStatus"));;
+         String EMPLOYMENT = request.getParameter ("employmentStatus");
          BigDecimal AVG_MONTHLY_INC = new BigDecimal (request.getParameter ("monthlyIncome"));
          String BPL_CARD_NO = request.getParameter ("BLP_Card_No");
-         byte HOUSING_REQ = Byte.parseByte(request.getParameter ("housingRequirement"));
+         String HOUSING_REQ = request.getParameter ("housingRequirement");
          Part IMG_PATH = request.getPart ("imageBeneficiary");
          //String DGTL_SIGN_ULB = request.getParameter ("");
          String DGTL_SIGN_ULB = "Test1";
@@ -105,16 +105,13 @@ public class BEN_Registration extends HttpServlet {
              
              for (int i = 0; i < fmlyNames.length; i++){
                  
-                 obj.BeneficiaryFamilyInsert(AADHAR_CARD, fmlyNames[i], Byte.parseByte(fmlyRelation[i]), Byte.parseByte(fmlyGender[i]),
+                 obj.BeneficiaryFamilyInsert(AADHAR_CARD, fmlyNames[i], fmlyRelation[i], fmlyGender[i],
                                          Byte.parseByte(fmlyAge[i]), fmlyAadhar[i]);
              }
              
-         }
-         
-         
-         
+         }//end of IF         
 		
-	}
+	}//end of doGet
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

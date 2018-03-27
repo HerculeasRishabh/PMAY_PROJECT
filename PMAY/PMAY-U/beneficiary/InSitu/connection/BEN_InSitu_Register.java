@@ -259,6 +259,8 @@ public class BEN_InSitu_Register {
             pstmt.setString(23, DGTL_SIGN_ULB);
             pstmt.setString(24, OLD_AADHAR);
             
+           
+            
             counter = pstmt.executeUpdate();
             
             System.out.println(counter);
@@ -270,6 +272,71 @@ public class BEN_InSitu_Register {
         }
         return counter;
     }//end of beneficiaryInSituUpdate_IA
+    
+    /**
+     * @author rishabhojha
+     * 
+     * This function update the data of a BEN_SURVEY_INSITU with image
+     * into the database.
+     * 
+     * It is executed by the ULB only!
+     * 
+     * @param 
+     */
+    public int beneficiaryInSituUpdate_IA_Img (String STATE, String DISTRICT, String CITY, String WARD, String SLUM_NAME, String AREA_NAME, 
+            String HFA_VERTICAL, String FMLY_HEAD_NM, String SEX, String FATHERS_NAME, int fMLY_HEAD_AGE, String HOUSE_NO, String STREET, 
+            String MOBILE_NO, String AADHAR_CARD, String rELIGION, String cASTE, byte dISABLE, String mARITAL_STATUS, byte oWNS_HOUSE_LAND, 
+            String OWNERSHIP_DETAILS, BigDecimal AVG_MONTHLY_INC, String FMLY_HEAD_IMG_PATH, String DGTL_SIGN_ULB, String OLD_AADHAR){
+        
+        sql = "  UPDATE BEN_SURVEY_INSITU SET "
+            +"  STATE = ?, DISTRICT = ?, CITY = ?, WARD = ?, SLUM_NAME = ?, AREA_NAME = ?, "
+            +"  HFA_VERTICAL = ?, FMLY_HEAD_NM = ?, SEX = ?, FATHERS_NAME = ?, FMLY_HEAD_AGE = ?, "
+            +"  HOUSE_NO = ?, STREET = ?, MOBILE_NO = ?, AADHAR_CARD = ?, RELIGION = ?, CASTE = ?, "
+            +"  DISABLE = ?, MARITAL_STATUS = ?, OWNS_HOUSE_LAND = ?, OWNERSHIP_DETAILS = ?, "
+            +"  AVG_MONTHLY_INC = ?, FMLY_HEAD_IMG_PATH = ?, DGTL_SIGN_ULB = ? WHERE AADHAR_CARD = ?;";
+        
+        try {
+            pstmt = conn.prepareStatement(sql);
+            
+            pstmt.setString(1, STATE);
+            pstmt.setString(2, DISTRICT);
+            pstmt.setString(3, CITY);
+            pstmt.setString(4, WARD);
+            pstmt.setString(5, SLUM_NAME);
+            pstmt.setString(6, AREA_NAME);
+            pstmt.setString(7, HFA_VERTICAL);
+            pstmt.setString(8, FMLY_HEAD_NM);
+            pstmt.setString(9, SEX);
+            pstmt.setString(10, FATHERS_NAME);
+            pstmt.setInt(11, fMLY_HEAD_AGE);
+            pstmt.setString(12, HOUSE_NO);
+            pstmt.setString(13, STREET);
+            pstmt.setString(14, MOBILE_NO);
+            pstmt.setString(15, AADHAR_CARD);
+            pstmt.setString(16, rELIGION);
+            pstmt.setString(17, cASTE);
+            pstmt.setByte(18, dISABLE);
+            pstmt.setString(19, mARITAL_STATUS);
+            pstmt.setByte(20, oWNS_HOUSE_LAND);
+            pstmt.setString(21, OWNERSHIP_DETAILS);
+            pstmt.setBigDecimal(22, AVG_MONTHLY_INC);
+            pstmt.setString(23, FMLY_HEAD_IMG_PATH);
+            pstmt.setString(24, DGTL_SIGN_ULB);
+            pstmt.setString(25, OLD_AADHAR);
+            
+            counter = pstmt.executeUpdate();
+            
+            System.out.println(counter);
+            return counter;
+            
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return counter;
+    }//end of beneficiaryInSituUpdate_IA
+    
+
     
     
     

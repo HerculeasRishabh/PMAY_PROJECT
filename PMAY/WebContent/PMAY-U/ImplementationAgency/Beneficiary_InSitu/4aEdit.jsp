@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../../css/slumRD.css">
     <script src="../../js/showMore.js"></script>
     <script src="../../js/stateCity.js"></script>
+ 
     <script>        
         $(document).ready(function() {
             $('select').material_select();
@@ -42,7 +43,7 @@
         </div>
     </nav>
 
-        <form style= "margin-left:60px;" action="http://localhost:8080/PMAY/BEN_InSitu_ULB_Update" method = "POST">
+        <form style= "margin-left:60px;" action="http://localhost:8080/PMAY/BEN_InSitu_ULB_Update" method = "POST" enctype="multipart/form-data">
         	<input type = "hidden" value = "1" name = "old_aadhar">
             <div class="row">
                 <div class="col input-field s3">
@@ -318,8 +319,33 @@
                             <input name="monthlyIncome" id="icon_prefix" type="number" class="validate" step = "0.01" value="<%= RS.getString(22) %>">
                             <label for="icon_prefix"><%= RS.getString(22) %>(Average Monthly Income of Households(in Rs.))</label>
                        </div>
-                </div>    
+                </div> 
+                <div class="row">
+                <%
+                	String link = "../../" + RS.getString(24).substring(58);
+                                    
+                %>
+                <img  width="600" src="<%= link%>">
                 
+                 
+                <div class="row">
+                
+                	<input id="icon_prefix" type="text" class="validate" name = "img">
+                	
+                    <p style="margin-left:10px;">Upload a Photo of Head of the Family:</p>        
+                    <p style="margin-left:10px;">(The size of the Photograph should not be more than 16kb)</p>
+                    <div class="col file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input name="imageBeneficiary" type="file">
+                        </div>
+                        <div style="width:435px;" class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+                </div>
+                
+                </div>
                 <div class="row number">
                         <div class="input-field col proName">
                             <button name="submitbtn" type="submit" class="waves-effect waves-light btn fbtn">Submit</button>
