@@ -11,6 +11,8 @@
        non-verified customers, and then later verify them --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"
         import = "java.sql.*"%>
+<%@page import = "beneficiary.General.connection.*" %>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -41,7 +43,13 @@
         </nav>
         <br><br>
         <div>
-            <br>
+        <br>
+        <%
+        	String BenName = request.getParameter("benName");
+        	BEN_GNRL_Registration obj = new BEN_GNRL_Registration ();
+        	ResultSet RS = null;
+        	RS = obj.selectRecord4B_Name(BenName);
+        %>
             <form  action="">
                 <div class="">
                     <div style="overflow-x:auto; margin-left: 120px;"  >
@@ -57,11 +65,6 @@
                                 <th>edit</th>
                             </tr>
                             <%
-                                //Creating the reference of type ResultSet
-                                ResultSet RS;
-                                //Creating the object of AdminVewRequestBean
-                                BEN_GNRL_Registration obj = new BEN_GNRL_Registration ();                          //Using the static show_Customer_NV() function of Customer
-                                RS = obj.selectAllBEN_Gnrl();
                                 int i = 1;
                                 while (RS.next()) {
 

@@ -31,8 +31,11 @@
             ResultSet RS = null;
 			ResultSet RS2 = null;
 			BEN_InSitu_Register obj = new BEN_InSitu_Register();
-            RS = obj.selectRecord4AEdit("1");
-            RS2 = obj.selectRecord4AFamilyEdit("1");
+            HttpSession session1 = request.getSession(true);
+
+			String Old_Aadhar = request.getParameter("old_Aadhar");
+            RS = obj.selectRecord4AEdit(Old_Aadhar);
+            RS2 = obj.selectRecord4AFamilyEdit(Old_Aadhar);
             int i = 1;
             RS.next();
 
@@ -46,7 +49,7 @@
     </nav>
 
         <form style= "margin-left:60px;" action="http://localhost:8080/PMAY/BEN_InSitu_ULB_Update" method = "POST" enctype="multipart/form-data">
-        	<input type = "hidden" value = "1" name = "old_aadhar">
+        	<input type = "hidden" value = "<%= Old_Aadhar %>" name = "old_aadhar">
             <div class="row">
                 <div class="col input-field s3">
                     <select required name="stateName" onChange="changecat(this.value);">
@@ -176,6 +179,47 @@
                 </div>
             </div>
             <%
+            	if (!RS2.next()){
+             	   RS2.beforeFirst();   
+             %>
+            	    <div id="memMain">
+				                <div class="row">
+				                    <p style="margin-left:10px;">Family Member Details</p>
+				                    <div class="col input-field s3">
+				                        <input name="nameFam" id="icon_prefix" type="text" class="validate">
+				                        <label for="icon_prefix">Name of Family member</label>
+				                    </div>
+				                    <div class="col input-field s1">
+				                        <select name="memberGenderFam">
+				                            <option value="">Sex</option>
+				                            <option value="Male">Male</option>
+				                            <option value="Female">Female</option>
+				                            <option value="Other">Other</option>
+				                        </select>
+				                    </div>
+				                    <div class="col input-field s1">
+				                        <select name="memberRelationFam">
+				                            <option value="">Relation</option>
+				                            <option value="Mother">Mother</option>
+				                            <option value="Father">Father</option>
+				                            <option value="Sister">Sister</option>
+				                            <option value="Husband">Husband</option>
+				                            <option value="Son">Son</option>
+				                            <option value="Daughter">Daughter</option>
+				                        </select>
+				                    </div>
+				                    <div class="col input-field s1">
+				                        <input name="memberAgeFam" id="icon_prefix" type="number" class="validate">
+				                        <label for="icon_prefix">Age</label>
+				                    </div>
+				                    <div class="col input-field s3">
+				                        <input name="memberAadharFam" id="icon_prefix" type="number" class="validate">
+				                        <label for="icon_prefix">Aadhar Card Number</label>
+				                    </div>
+				                </div>
+				            </div>
+            <% 
+            	}else {
             	while (RS2.next()){
             %>
 				            <div id="memMain">
@@ -216,6 +260,7 @@
 				            </div>
 			<%
             	}
+            }//end of else
 			%>
             <a style="margin-left:10px; margin-top: -15px; background-color: #f4511e" onclick="showMore()" class="waves-effect waves-light btn">add</a>
 

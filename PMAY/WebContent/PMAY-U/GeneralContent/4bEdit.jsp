@@ -31,7 +31,7 @@
 	    	BEN_GNRL_Registration obj = new BEN_GNRL_Registration();
 	    	String survey_no = request.getParameter("surveyNo");
 	    	HttpSession session1 = request.getSession ();
-	    	String old_Aadhar = (String) session1.getAttribute("old_Aadhar");
+	    	String old_Aadhar = request.getParameter ("old_Aadhar");
 	    	RS2 = obj.selectRecord4BFamilyEdit(old_Aadhar);
             RS = obj.selectRecord4BEdit(old_Aadhar);
             int i = 1;
@@ -198,10 +198,49 @@
                     <label for="icon_prefix"><%= RS.getString(19) %>(Aadhar Card Number)</label>
                 </div>
             </div>
-            <%
-            	int iFam = 1;
+              <%
+            	if (!RS2.next()){
+             	   RS2.beforeFirst();   
+             %>
+            	    <div id="memMain">
+				                <div class="row">
+				                    <p style="margin-left:10px;">Family Member Details</p>
+				                    <div class="col input-field s3">
+				                        <input name="nameFam" id="icon_prefix" type="text" class="validate">
+				                        <label for="icon_prefix">Name of Family member</label>
+				                    </div>
+				                    <div class="col input-field s1">
+				                        <select name="memberGenderFam">
+				                            <option value="">Sex</option>
+				                            <option value="Male">Male</option>
+				                            <option value="Female">Female</option>
+				                            <option value="Other">Other</option>
+				                        </select>
+				                    </div>
+				                    <div class="col input-field s1">
+				                        <select name="memberRelationFam">
+				                            <option value="">Relation</option>
+				                            <option value="Mother">Mother</option>
+				                            <option value="Father">Father</option>
+				                            <option value="Sister">Sister</option>
+				                            <option value="Husband">Husband</option>
+				                            <option value="Son">Son</option>
+				                            <option value="Daughter">Daughter</option>
+				                        </select>
+				                    </div>
+				                    <div class="col input-field s1">
+				                        <input name="memberAgeFam" id="icon_prefix" type="number" class="validate">
+				                        <label for="icon_prefix">Age</label>
+				                    </div>
+				                    <div class="col input-field s3">
+				                        <input name="memberAadharFam" id="icon_prefix" type="number" class="validate">
+				                        <label for="icon_prefix">Aadhar Card Number</label>
+				                    </div>
+				                </div>
+				            </div>
+            <% 
+            	} else {
             	while (RS2.next()){
-            	    
             %>
 				            <div id="memMain">
 				                <div class="row">
@@ -241,6 +280,7 @@
 				            </div>
 			  <%
             	}
+            }//end of else
 			 %>
             <a style="margin-left:10px; margin-top: -15px; background-color: #f4511e" onclick="showMore()" class="waves-effect waves-light btn">add</a>
 
@@ -407,11 +447,18 @@
                 %>
                 <img  width="300" src="<%= link%>">
                 
+                 <div class="row">
+                 	<p>Do you want to change the Image?</p>
+					<p>
+						<input name="img" type="radio" id="test901" value = "1"/>
+						<label for="test901">Yes</label>
+
+						<input name="img" type="radio" id="test902" value = "0"/>
+						<label for="test902">No</label>
+					</p>	
+                 </div>
                  
-                <div class="row">
-                
-                	<input id="icon_prefix" type="text" class="validate" name = "img">
-                	
+                <div class="row">	
                     <p style="margin-left:10px;">Upload a Photo of Head of the Family:</p>        
                     <p style="margin-left:10px;">(The size of the Photograph should not be more than 16kb)</p>
                     <div class="col file-field input-field">

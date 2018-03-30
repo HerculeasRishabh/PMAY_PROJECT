@@ -106,7 +106,7 @@ public class BEN_Registration extends HttpServlet {
              String [] fmlyAge = request.getParameterValues("memberAgeFam");
              String [] fmlyAadhar = request.getParameterValues("memberAadharFam"); 
              
-             for (int i = 0; i < fmlyNames.length; i++){
+             for (int i = 0; i < (fmlyNames.length) - 1; i++){
                  
                  obj.BeneficiaryFamilyInsert(AADHAR_CARD, fmlyNames[i], fmlyRelation[i], fmlyGender[i],
                                          Byte.parseByte(fmlyAge[i]), fmlyAadhar[i]);

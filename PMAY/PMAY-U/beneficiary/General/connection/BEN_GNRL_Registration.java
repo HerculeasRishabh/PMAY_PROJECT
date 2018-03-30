@@ -211,7 +211,7 @@ public class BEN_GNRL_Registration {
             ex.printStackTrace();
         }
         return rs;
-    }//end of selectRecord4AEdit
+    }//end of selectRecord4BEdit
     
     /**
      * 
@@ -231,7 +231,7 @@ public class BEN_GNRL_Registration {
             pstmt = conn.prepareStatement(sql);
             
                    
-            pstmt.setString(1, AADHAR_CARD);
+            pstmt.setString(1, AADHAR_CARD + "%");
 
             rs = pstmt.executeQuery();
             
@@ -241,7 +241,38 @@ public class BEN_GNRL_Registration {
             ex.printStackTrace();
         }
         return rs;
-    }//end of selectRecord4AEdit
+    }//end of selectRecord4B_Aadhar
+    
+    /**
+     * 
+     * This function is used to retrieve the data from the BEN_SURVEY_GNRL table
+     * to edit it
+     * 
+     * @param AADHAR_CARD
+     * @return Object Of Type ResultSet
+     */
+    
+    public ResultSet selectRecord4B_Name(String NAME){
+
+        sql = "SELECT * FROM BEN_SURVEY_GNRL WHERE FMLY_HEAD_NM LIKE ?;";
+        
+        try {
+           
+            pstmt = conn.prepareStatement(sql);
+            
+                   
+            pstmt.setString(1, NAME + "%");
+
+            rs = pstmt.executeQuery();
+            
+            return rs;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return rs;
+    }//end of selectRecord4B_Name
+    
     
     /**
      * This function is used to retrieve the details of the family of the 

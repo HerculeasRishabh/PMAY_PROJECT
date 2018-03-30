@@ -114,13 +114,14 @@ public class BEN_InSitu_ULB_Update extends HttpServlet {
             String [] fmlyAge = request.getParameterValues("memberAgeFam");
             String [] fmlyAadhar = request.getParameterValues("memberAadharFam"); 
             
-            for (int i = 0; i < fmlyNames.length; i++){
+            for (int i = 0; i < (fmlyNames.length) - 1; i++){
                 
                 obj.BeneficiaryFamilyInsert(AADHAR_CARD, fmlyNames[i], fmlyGender[i], fmlyRelation[i],
                         Integer.parseInt(fmlyAge[i]), fmlyAadhar[i]);
             }
             
-        }
+        }//end of if
+        response.sendRedirect("http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/Beneficiary_InSitu/SearchBeneficiaryInSitu.jsp");
    
 	}
 

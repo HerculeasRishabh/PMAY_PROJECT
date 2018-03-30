@@ -60,6 +60,9 @@ public class ULB_Login_Servlet extends HttpServlet {
                 
                 String ULB_SIGN = RS.getString(1);
                 session.setAttribute("ULB_SIGN", ULB_SIGN);
+                session.setAttribute("ULB_STATE", RS.getString(5));
+                session.setAttribute("ULB_DISTRICT", RS.getString(6));
+
                 response.sendRedirect("http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/ULB_LoggedIn.jsp");
             }
         } catch (SQLException e) {

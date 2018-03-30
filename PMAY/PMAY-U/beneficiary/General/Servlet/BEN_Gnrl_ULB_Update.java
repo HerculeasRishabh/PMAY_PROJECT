@@ -119,7 +119,7 @@ public class BEN_Gnrl_ULB_Update extends HttpServlet {
         
         
         if (run != -1 ){
-            obj.beneficiaryGeneralFamily_Delete(AADHAR_CARD);
+            obj.beneficiaryGeneralFamily_Delete(OLD_AADHAR);
             
             String [] fmlyNames = request.getParameterValues("nameFam");
             String [] fmlyGender  = request.getParameterValues("memberGenderFam");
@@ -127,13 +127,15 @@ public class BEN_Gnrl_ULB_Update extends HttpServlet {
             String [] fmlyAge = request.getParameterValues("memberAgeFam");
             String [] fmlyAadhar = request.getParameterValues("memberAadharFam"); 
             
-            for (int i = 0; i < fmlyNames.length; i++){
+            for (int i = 0; i < (fmlyNames.length) - 1; i++){
                 
                 obj.BeneficiaryFamilyInsert(AADHAR_CARD, fmlyNames[i], fmlyRelation[i], fmlyGender[i],
                                         Byte.parseByte(fmlyAge[i]), fmlyAadhar[i]);
             }
             
-        }       
+        }
+        
+        response.sendRedirect("http://localhost:8080/PMAY/PMAY-U/GeneralContent/SearchBeneficiaryGnrl.jsp");
         
 	}
 

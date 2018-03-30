@@ -74,14 +74,6 @@
                                 <td><%= i++%></td>
 
                                 <td><%= RS.getString(1)%></td>
-                                <%
-
-                                    HttpSession session1 = request.getSession(true);
-
-                                    session1.setAttribute("old_Aadhar", RS.getString (19));
-
-
-                                %>
                                 <td><%= RS.getString(9)%></td>
                                 <td style = "width:200;"><%= RS.getString(11)%></td>
                                 <td><%= RS.getString(10)%></td>
@@ -91,7 +83,7 @@
 
 
                                 <td>
-                                    <a href="4bEdit.jsp?surveyNo=<%= RS.getString(1)%>">click me</a>
+                                    <a href="4bEdit.jsp?surveyNo=<%= RS.getString(1)%>&old_Aadhar=<%= RS.getString(19) %>">click me</a>
                                 </td>
                                 
                                 <%

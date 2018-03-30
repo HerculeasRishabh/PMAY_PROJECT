@@ -5,7 +5,7 @@
 --%>
 
 
-<%@page import="beneficiary.General.connection.*"%>
+<%@page import="beneficiary.InSitu.connection.*"%>
 
 <%-- This page is used to display the details of the 
        non-verified customers, and then later verify them --%>
@@ -17,26 +17,23 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
-        <title>Complete list of General Beneficiary</title>
-        <!-- Loading third party fonts -->
+        <title>List of InSitu Beneficiary Based on Aadhar</title>
 
-        <!-- Loading main css file ->
-        <link rel="stylesheet" href="../css/header.css">-->
-        <script src="../js/jquery-3.3.1.js"></script>
-        <script src="../js/materialize.js"></script>
-        <script src="../js/material.js"></script>
-        <script src="../js/sendData.js"></script>
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/materialize.css">
-        <link rel="stylesheet" href="../css/material.css">
-        <link rel="stylesheet" href="../css/table.css">
-        <link rel="stylesheet" href="../css/Header_Final.css">
+        <script src="../../js/jquery-3.3.1.js"></script>
+        <script src="../../js/materialize.js"></script>
+        <script src="../../js/material.js"></script>
+        <script src="../../js/sendData.js"></script>
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../../css/materialize.css">
+        <link rel="stylesheet" href="../../css/material.css">
+        <link rel="stylesheet" href="../../css/table.css">
+        <link rel="stylesheet" href="../../css/Header_Final.css">
 
-<jsp:include page = "../Headers/IA_Header.jspf"/>
+<jsp:include page = "../../Headers/IA_Header.jspf"/>
 
         <nav class="aboutHead" style="width: 80%; margin-left: 10%; background-color: red;">
             <div class="nav-wrapper" style="margin-left: 10%;width:80%; background-color: green;">
-                <center><h3 style="margin-left:60px;">Complete list of General Beneficiary</h3></center>
+                <center><h3 style="margin-left:60px;">List of InSitu Beneficiary Based on Aadhar</h3></center>
             </div>
         </nav>
         <br><br>
@@ -60,12 +57,11 @@
                                 //Creating the reference of type ResultSet
                                 ResultSet RS;
                                 //Creating the object of AdminVewRequestBean
-                                BEN_GNRL_Registration obj = new BEN_GNRL_Registration ();                          //Using the static show_Customer_NV() function of Customer
-                                RS = obj.selectAllBEN_Gnrl();
+                                BEN_InSitu_Register obj = new BEN_InSitu_Register ();                          //Using the static show_Customer_NV() function of Customer
+                                String BenName = request.getParameter("benName");
+                                RS = obj.selectRecord4A_Name(BenName);
                                 int i = 1;
                                 while (RS.next()) {
-
-
                             %>
                             <tr>
                                 <td><%= i++%></td>
@@ -74,13 +70,13 @@
                                 <td><%= RS.getString(9)%></td>
                                 <td style = "width:200;"><%= RS.getString(11)%></td>
                                 <td><%= RS.getString(10)%></td>
-                                <td><%= RS.getString(21)%></td>
-                                <td><%= RS.getString(20)%></td>
-                                <td><%= RS.getString(19)%></td>
+                                <td><%= RS.getString(18)%></td>
+                                <td><%= RS.getString(17)%></td>
+                                <td><%= RS.getString(16)%></td>
 
 
                                 <td>
-                                    <a href="4bEdit.jsp?surveyNo=<%= RS.getString(1)%>&old_Aadhar=<%= RS.getString(19) %>">click me</a>
+                                    <a href="4aEdit.jsp?surveyNo=<%= RS.getString(1)%>&old_Aadhar=<%= RS.getString(16) %>">click me</a>
                                 </td>
                                 
                                 <%
@@ -117,4 +113,4 @@
 
         </div>
 
-<jsp:include page = "../Footers/IA_Footer.jspf"/>
+<jsp:include page = "../../Footers/IA_Footer.jspf"/>

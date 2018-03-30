@@ -12,10 +12,17 @@
 	 #beneficiaryRegistration{
 	 	overflow:visible!important;
 	 }
+	 #report{
+		overflow:visible!important;
+	 }
 	 
 	 .dropdown-content .dropdown-content {
 	    margin-left: 100%;
 	    
+	 }
+	 
+	 .dropdown-content:HOVER{
+	 	
 	 }
 	
 	 .page-footer {
@@ -45,13 +52,13 @@
             <li><a class='dropdown-button' href='#' data-activates='dropdownD' data-hover="hover" data-alignment="right">Format A</a></li>
               <ul id="dropdownD"  class='dropdown-nested dropdown-content'>
               <li><a href="http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/Beneficiary_InSitu/InSitu_4A_BEN_Survey.jsp">Format A Insert</a></li>
-              <li><a href="#!">Format A Edit</a></li>
+              <li><a href="http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/Beneficiary_InSitu/SearchBeneficiaryInSitu.jsp">Format A Edit</a></li>
               </ul>
               
               <li><a class='dropdown-button' href='#' data-activates='dropdownE' data-hover="hover" data-alignment="right">Format B</a></li>
               <ul id="dropdownE"  class='dropdown-nested dropdown-content'>
               <li><a href="http://localhost:8080/PMAY/PMAY-U/GeneralContent/BEN_SurveyGNRL.jsp">Format B Insert</a></li>
-              <li><a href="#!">Format B Edit</a></li>
+              <li><a href="http://localhost:8080/PMAY/PMAY-U/GeneralContent/SearchBeneficiaryGnrl.jsp">Format B Edit</a></li>
               </ul>
         </ul>
         <!--attachBeneficiary does'nt have a dropdown-->
@@ -78,22 +85,27 @@
             <li><a href="#!">SLSMC</a></li>
           </ul>
           <ul style="margin-top:65px;" id="report" class="dropdown-content">
+            <li><a class='dropdown-button' href='#' data-activates='dropdownM' data-hover="hover" data-alignment="left">Beneficiary</a></li>
+              <ul id="dropdownM"  class='dropdown-content dropdown-nested'>
+              <li><a href="">Format A</a></li>
+              <li><a href="http://localhost:8080/PMAY/PMAY-U/Reports/Beneficiary/retrive_BEN.jsp">Format B</a></li>
+              </ul> 
             <li><a href="#!">InSitu</a></li>
             <li><a href="#!">Affordable Housing Partnership</a></li>
             <li><a href="#!">Beneficiary Lead Construction</a></li>
           </ul>
           <ul style="margin-top:65px;" id='attachBeneficiary' class='dropdown-content'>
-            <li><a class='dropdown-button' href='#' data-activates='dropdownX' data-hover="hover" data-alignment="right">InSitu</a></li>
-              <ul id="dropdownX"  class='dropdown-nested dropdown-content'>
+            <li><a class='dropdown-button' href='#' data-activates='dropdownX2' data-hover="hover" data-alignment="left">InSitu</a></li>
+              <ul id="dropdownX2"  class='dropdown-nested dropdown-content'>
               <li><a href="#!">Attach Beneficiary</a></li>
               <li><a href="#!">Remove Beneficiary</a></li>
               </ul>
-            <li><a class='dropdown-button' href='#' data-activates='dropdownY' data-hover="hover" data-alignment="right">Affordable Housing Partnership</a></li>
+            <li><a class='dropdown-button' href='#' data-activates='dropdownY' data-hover="hover" data-alignment="left">Affordable Housing Partnership</a></li>
               <ul id="dropdownY"  class='dropdown-content dropdown-nested'>
               <li><a href="#!">Attach Beneficiary</a></li>
               <li><a href="#!">Remove Beneficiary</a></li>
               </ul> 
-            <li><a class='dropdown-button' href='#' data-activates='dropdownZ' data-hover="hover" data-alignment="right">Beneficiary Lead Construction</a></li>
+            <li><a class='dropdown-button' href='#' data-activates='dropdownZ' data-hover="hover" data-alignment="left">Beneficiary Lead Construction</a></li>
               <ul id="dropdownZ"  class='dropdown-content dropdown-nested'>
               <li><a href="#!">Attach Beneficiary</a></li>
               <li><a href="#!">Remove Beneficiary</a></li>

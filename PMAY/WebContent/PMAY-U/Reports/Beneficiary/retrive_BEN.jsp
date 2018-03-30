@@ -78,15 +78,15 @@ input {margin-bottom: 5px; padding: 2px 3px; width: 98px;}
         <div align="center">
             <nav class="aboutHead" style="width: 80%; background-color: #f4511e;">
                 <div class="nav-wrapper" style=";width:100%; background-color: rgba(51,51,51,0.08);">
-                    <center><h3 style=" padding-top:15px;">|Beneficiary Record|</h3></center>
+                    <center><h3 style=" padding-top:15px;">General Beneficiary Record</h3></center>
                 </div>
             </nav>
         </div>
-        <form>
+        <!-- <form>
             <div align="center" style="margin-left:10%;" id="search_div" class="row">
                 <div class="s4 input-field col">
                     <input name="cityName" id="search1" type="text" class="validate">
-                    <label for="search1">Type to Search</label>
+                    <label for="search1">Search By City</label>
                 </div>
                 <div class="s4 input-field col">
                     <input name="cityName" id="search2" type="text" class="validate">
@@ -96,10 +96,8 @@ input {margin-bottom: 5px; padding: 2px 3px; width: 98px;}
                     <input name="cityName" id="search3" type="text" class="validate">
                     <label for="search3">Type to Search</label>
                 </div>
-                <!--<div><input name="Submit" type="submit"></div>-->
             </div>
-        </form>
-        <!--<br><br>-->
+        </form> -->
         <form  action="">
             <div>
                 <div style="overflow-x:auto; margin-left: 120px;">
@@ -150,7 +148,7 @@ input {margin-bottom: 5px; padding: 2px 3px; width: 98px;}
                             ResultSet RS;
                             //Creating the object of AdminVewRequestBean
                             Detailed_BEN obj = new Detailed_BEN ();
-                            RS = obj.selectBEN_Detailed();
+                            RS = obj.selectBEN_Detailed(); //General Beneficiary
                             int i = 1;
                             while (RS.next()) {
                         %>
@@ -194,6 +192,7 @@ input {margin-bottom: 5px; padding: 2px 3px; width: 98px;}
                             <td style="margin-right:100px;width:450px; overflow-wrap: normal;"><div><%= RS.getString(34)%></div></td>
                           </tr>
                           <%
+                          		i++;
                             }
                           %>
                     </table>

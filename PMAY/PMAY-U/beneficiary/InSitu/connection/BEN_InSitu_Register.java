@@ -148,6 +148,91 @@ public class BEN_InSitu_Register {
     }//end of BeneficiaryFamilyInsert
     
     /////////////////////////////////////Retrieve data from database////////////////////////////////
+    
+    /**
+     * This function is used to retrieve the complete data of the beneficiary from the database 
+     * @return
+     */
+    public ResultSet selectAllBEN_InSitu (){
+
+        sql = "SELECT * FROM BEN_SURVEY_INSITU";
+        
+        try {
+           
+            pstmt = conn.prepareStatement(sql);
+
+            rs = pstmt.executeQuery();
+            
+            return rs;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return rs;
+        
+    }//end of selectAllBEN_InSItu
+    
+    /**
+     * 
+     * This function is used to retrieve the data from the BEN_SURVEY_INSITU table
+     * to edit it
+     * 
+     * @param AADHAR_CARD
+     * @return Object Of Type ResultSet
+     */
+    
+    public ResultSet selectRecord4A_Aadhar(String AADHAR_CARD){
+
+        sql = "SELECT * FROM BEN_SURVEY_INSITU WHERE AADHAR_CARD LIKE ?;";
+        
+        try {
+           
+            pstmt = conn.prepareStatement(sql);
+            
+                   
+            pstmt.setString(1, AADHAR_CARD + "%");
+
+            rs = pstmt.executeQuery();
+            
+            return rs;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return rs;
+    }//end of selectRecord4B_Aadhar
+    
+    /**
+     * 
+     * This function is used to retrieve the data from the BEN_SURVEY_INSITU table
+     * to edit it
+     * 
+     * @param AADHAR_CARD
+     * @return Object Of Type ResultSet
+     */
+    
+    public ResultSet selectRecord4A_Name(String NAME){
+
+        sql = "SELECT * FROM BEN_SURVEY_INSITU WHERE FMLY_HEAD_NM LIKE ?;";
+        
+        try {
+           
+            pstmt = conn.prepareStatement(sql);
+            
+                   
+            pstmt.setString(1, NAME + "%");
+
+            rs = pstmt.executeQuery();
+            
+            return rs;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return rs;
+    }//end of selectRecord4A_Name
+
+    
     /**
      * 
      * This function is used to retrieve the data from the BEN_SURVEY_INSITU table
