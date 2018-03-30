@@ -3,6 +3,8 @@ package beneficiary.General.Servlet;
 import java.io.File;
 
 
+
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -14,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import beneficiary.General.connection.*;
@@ -82,8 +85,9 @@ public class BEN_Gnrl_ULB_Update extends HttpServlet {
         String BPL_CARD_NO = request.getParameter ("BLP_Card_No");
         String HOUSING_REQ = request.getParameter ("housingRequirement");
         
-        //String DGTL_SIGN_ULB = request.getParameter ("");
-        String DGTL_SIGN_ULB = "Test1";
+        HttpSession session = request.getSession();
+        
+        String DGTL_SIGN_ULB = (String) session.getAttribute("ULB_SIGN");
         String OLD_AADHAR = request.getParameter("old_aadhar");
         String img = request.getParameter("img");
         

@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dpr.AHP.connection.*;
 /**
@@ -78,7 +79,11 @@ public class AHP_ULB_DPR_Insert extends HttpServlet {
 	    byte GREEN_TECH = Byte.parseByte(request.getParameter ("projectInnovation"));
 	    String SLAC_COMMENT = request.getParameter ("commentSLAC");
 	    String OTHER_INFO = request.getParameter ("projectBrief");
-	    String ULB_DIGITAL_SIGN = "Test1";
+	    
+	    HttpSession session = request.getSession();
+        
+        String ULB_DIGITAL_SIGN = (String) session.getAttribute("ULB_SIGN");
+	    
 	    
 	    double CENTRAL_GRANT = ELIGIBLE_EWS * 1.5;
 	    

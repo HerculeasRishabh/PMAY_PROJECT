@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class BLC_ULB_DPR_Update
@@ -68,7 +69,9 @@ public class BLC_ULB_DPR_Update extends HttpServlet {
         byte GEO_TAGGING_DPR = Byte.parseByte (request.getParameter("geoTagInDPR"));
         byte GREEN_TECH = Byte.parseByte (request.getParameter("innovativeProject"));
         String OTHER_INFO = request.getParameter ("otherInfo");
-        String ULB_DIGITAL_SIGN = "testULB1";
+        HttpSession session = request.getSession();
+        
+        String DGTL_SIGN_ULB = (String) session.getAttribute("ULB_SIGN");;
         int BLC_PROJECT_NO = Integer.parseInt(request.getParameter("BLC_PROJECT_NO"));
         
         double CENTRAL_GRANT = (GEN_OLD + SC_OLD + ST_OLD + OBC_OLD + MINORITY_OLD +
@@ -82,7 +85,7 @@ public class BLC_ULB_DPR_Update extends HttpServlet {
                 OWNERSHIP, BUILDING_PLAN, CENTRAL_GRANT, STATE_GRANT, ULB_GRANT, BEN_SHARE, TECH_SPECIFICATION, 
                 ENSURED_BALANCE_COST, WATER, SEWERAGE, ROAD, WATER_DRAIN, ELECTRIFICATION, WASTE_MANAGEMENT, 
                 OTHER_INFRA, DESASTER_RESISTANT, DEMAND_SURVEY, CITY_WIDE_INTEGRATED, SECC_VALIDATION, ENSURE_DBT, 
-                GEO_TAGGING_DPR, GREEN_TECH, OTHER_INFO, ULB_DIGITAL_SIGN, BLC_PROJECT_NO);
+                GEO_TAGGING_DPR, GREEN_TECH, OTHER_INFO, DGTL_SIGN_ULB, BLC_PROJECT_NO);
         
         
 	}

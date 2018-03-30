@@ -29,8 +29,11 @@
             ResultSet RS = null;
 	    	ResultSet RS2 = null;
 	    	BEN_GNRL_Registration obj = new BEN_GNRL_Registration();
-	    	RS2 = obj.selectRecord4BFamilyEdit("2");
-            RS = obj.selectRecord4BEdit("2");
+	    	String survey_no = request.getParameter("surveyNo");
+	    	HttpSession session1 = request.getSession ();
+	    	String old_Aadhar = (String) session1.getAttribute("old_Aadhar");
+	    	RS2 = obj.selectRecord4BFamilyEdit(old_Aadhar);
+            RS = obj.selectRecord4BEdit(old_Aadhar);
             int i = 1;
             RS.next();
 
@@ -44,7 +47,7 @@
         </nav>
 
         <form style= "margin-left:60px;" action="http://localhost:8080/PMAY/BEN_Gnrl_ULB_Update" method = "POST" enctype="multipart/form-data">
-            <input type = "hidden" value = "2" name = "old_aadhar">
+            <input type = "hidden" value = "<%= old_Aadhar %>" name = "old_aadhar">
             <div class="row">
                 <div class="col input-field s3">
                     <select required name="stateName" onChange="changecat(this.value);">

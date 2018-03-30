@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -71,8 +72,10 @@ public class BEN_InSitu_Registration extends HttpServlet {
         String OWNERSHIP_DETAILS = request.getParameter ("ownershipDetails");
         BigDecimal AVG_MONTHLY_INC = new BigDecimal (request.getParameter ("monthlyIncome"));
         Part IMG_PATH = request.getPart ("imageBeneficiary");
-        //String DGTL_SIGN_ULB = request.getParameter ("");
-        String DGTL_SIGN_ULB = "Test1";
+        
+        HttpSession session = request.getSession();
+        
+        String DGTL_SIGN_ULB = (String) session.getAttribute("ULB_SIGN");
         
         String time = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Timestamp(System.currentTimeMillis()));
         IMG_PATH.write(savePath + File.separator + time + ".jpg" );
@@ -92,7 +95,7 @@ public class BEN_InSitu_Registration extends HttpServlet {
             String [] fmlyAge = request.getParameterValues("memberAgeFam");
             String [] fmlyAadhar = request.getParameterValues("memberAadharFam"); 
             
-            for (int i = 0; i < fmlyNames.length; i++){
+            for (int i = 0; i < (fmlyNames.length) - 1; i++){
                 
                 obj.BeneficiaryFamilyInsert(AADHAR_CARD, fmlyNames[i], fmlyGender[i], fmlyRelation[i],
                                         Integer.parseInt(fmlyAge[i]), fmlyAadhar[i]);

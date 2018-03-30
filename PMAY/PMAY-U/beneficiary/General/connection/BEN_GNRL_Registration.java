@@ -158,6 +158,31 @@ public class BEN_GNRL_Registration {
     
     
     /////////////////////////////////////Retrieve data from database////////////////////////////////
+    
+    /**
+     * This function is used to retrieve the complete data of the beneficiary from the database 
+     * @return
+     */
+    public ResultSet selectAllBEN_Gnrl (){
+
+        sql = "SELECT * FROM BEN_SURVEY_GNRL";
+        
+        try {
+           
+            pstmt = conn.prepareStatement(sql);
+
+            rs = pstmt.executeQuery();
+            
+            return rs;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return rs;
+        
+    }//end of selectAllBEN_Gnrl
+    
+    
     /**
      * 
      * This function is used to retrieve the data from the BEN_SURVEY_GNRL table
@@ -170,6 +195,36 @@ public class BEN_GNRL_Registration {
     public ResultSet selectRecord4BEdit(String AADHAR_CARD){
 
         sql = "SELECT * FROM BEN_SURVEY_GNRL WHERE AADHAR_CARD = ?;";
+        
+        try {
+           
+            pstmt = conn.prepareStatement(sql);
+            
+                   
+            pstmt.setString(1, AADHAR_CARD);
+
+            rs = pstmt.executeQuery();
+            
+            return rs;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return rs;
+    }//end of selectRecord4AEdit
+    
+    /**
+     * 
+     * This function is used to retrieve the data from the BEN_SURVEY_GNRL table
+     * to edit it
+     * 
+     * @param AADHAR_CARD
+     * @return Object Of Type ResultSet
+     */
+    
+    public ResultSet selectRecord4B_Aadhar(String AADHAR_CARD){
+
+        sql = "SELECT * FROM BEN_SURVEY_GNRL WHERE AADHAR_CARD LIKE ?;";
         
         try {
            

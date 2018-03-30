@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import beneficiary.InSitu.connection.*;
@@ -73,8 +74,11 @@ public class BEN_InSitu_ULB_Update extends HttpServlet {
         String OWNS_HOUSE_LAND = request.getParameter ("ownsHouseLand");
         String OWNERSHIP_DETAILS = request.getParameter ("ownershipDetails");
         String AVG_MONTHLY_INC = request.getParameter ("monthlyIncome");
-        //String DGTL_SIGN_ULB = request.getParameter ("");
-        String DGTL_SIGN_ULB = "Test1";
+        
+        HttpSession session = request.getSession();
+        
+        String DGTL_SIGN_ULB = (String) session.getAttribute("ULB_SIGN");
+        
         String OLD_AADHAR = request.getParameter("old_aadhar");
         int img = Integer.parseInt(request.getParameter("img"));  
         

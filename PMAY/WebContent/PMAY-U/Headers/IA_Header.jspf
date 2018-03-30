@@ -9,6 +9,10 @@
 		overflow:visible!important;
 	 }
 	 
+	 #beneficiaryRegistration{
+	 	overflow:visible!important;
+	 }
+	 
 	 .dropdown-content .dropdown-content {
 	    margin-left: 100%;
 	    
@@ -38,8 +42,17 @@
         <!-- Dropdown Structure -->
         <!--beneficiaryRegistration-->
         <ul style="margin-top:65px;" id="beneficiaryRegistration" class="dropdown-content">
-            <li><a href="http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/Beneficiary_InSitu/InSitu_4A_BEN_Survey.jsp">Format A</a></li>
-            <li><a href="http://localhost:8080/PMAY/PMAY-U/GeneralContent/BEN_SurveyGNRL.jsp">Format B</a></li>
+            <li><a class='dropdown-button' href='#' data-activates='dropdownD' data-hover="hover" data-alignment="right">Format A</a></li>
+              <ul id="dropdownD"  class='dropdown-nested dropdown-content'>
+              <li><a href="http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/Beneficiary_InSitu/InSitu_4A_BEN_Survey.jsp">Format A Insert</a></li>
+              <li><a href="#!">Format A Edit</a></li>
+              </ul>
+              
+              <li><a class='dropdown-button' href='#' data-activates='dropdownE' data-hover="hover" data-alignment="right">Format B</a></li>
+              <ul id="dropdownE"  class='dropdown-nested dropdown-content'>
+              <li><a href="http://localhost:8080/PMAY/PMAY-U/GeneralContent/BEN_SurveyGNRL.jsp">Format B Insert</a></li>
+              <li><a href="#!">Format B Edit</a></li>
+              </ul>
         </ul>
         <!--attachBeneficiary does'nt have a dropdown-->
         <!--DPR dropdown-->

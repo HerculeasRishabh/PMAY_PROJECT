@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class BLC_ULB_DPR_Insert
@@ -70,7 +71,10 @@ public class BLC_ULB_DPR_Insert extends HttpServlet {
 	    byte GEO_TAGGING_DPR = Byte.parseByte (request.getParameter("geoTagInDPR"));
 	    byte GREEN_TECH = Byte.parseByte (request.getParameter("innovativeProject"));
 	    String OTHER_INFO = request.getParameter ("otherInfo");
-	    String ULB_DIGITAL_SIGN = "testULB1";
+	    
+	    HttpSession session = request.getSession();
+        
+        String ULB_DIGITAL_SIGN = (String) session.getAttribute("ULB_SIGN");
 	    
 	    double CENTRAL_GRANT = (GEN_OLD + SC_OLD + ST_OLD + OBC_OLD + MINORITY_OLD +
 	                         GEN_NEW + SC_NEW + ST_NEW + OBC_NEW + MINORITY_NEW) * 1.5;

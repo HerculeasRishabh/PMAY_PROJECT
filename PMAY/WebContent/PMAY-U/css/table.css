@@ -1,0 +1,46 @@
+
+/* 
+    Created on : 15 MARCH 2018, 5:18:35 PM
+    Author     : HARIAN
+*/
+#tabletop
+{
+    color:#006064; 
+}
+table {
+    
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 80%;
+    border: 3px solid #ddd;
+    table-layout: fixed;
+}
+table2 {
+
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 80%;
+    border: 3px solid #ddd;
+table-layout: fixed;
+}
+th{color: green;}
+th, td {
+    text-align: center;
+    padding: 8px;
+    alignment-adjust: central;
+    height: 20px;
+    margin-right: 20px;
+    width:100px;
+}
+tr{border-bottom: 1px solid #ddd;}
+tr.header{
+  background-color: #f1f1f1;
+}
+tr:nth-child(even){background-color: #f2f2f2}
+tr:hover{background-color: #99ccff;}
+
+
+
+
+
+

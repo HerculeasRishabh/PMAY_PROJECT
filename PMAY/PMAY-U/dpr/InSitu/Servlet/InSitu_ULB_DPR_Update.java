@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dpr.InSitu.connection.DPR_InSitu_connection;
 
@@ -81,7 +82,9 @@ public class InSitu_ULB_DPR_Update extends HttpServlet {
         byte GREEN_TECH = Byte.parseByte (request.getParameter("innovativeProject"));
         String SLAC_COMMENT = request.getParameter("comments");
         String OTHER_INFO = request.getParameter("projectBrief");
-        String ULB_DIGITAL_SIGN = "test1";
+        HttpSession session = request.getSession();
+        
+        String DGTL_SIGN_ULB = (String) session.getAttribute("ULB_SIGN");
         int INSITU_PROJECT_NO = Integer.parseInt(request.getParameter("INSITU_PROJECT_NO"));
         
 
@@ -94,7 +97,7 @@ public class InSitu_ULB_DPR_Update extends HttpServlet {
                 SC_NEW, ST_NEW, OBC_NEW, MINORITY_NEW, HOUSE_PROPOSED, TOTAL_CAPR_AREA, PMAY_GUIDELINES, OPEN_PPP, EXISTING_FSI, 
                 FSI_PROVIDED, OTHER_INCENTIVE, CENTRAL_GRANT, STATE_GRANT, ULB_GRANT, BEN_SHARE, TECH_SPECIFICATION, TEMP_ARRANGEMENT, 
                 TRUNK_INFRA, WATER, SEWERAGE, ROAD, WATER_DRAIN, ELECTRIFICATION, WASTE_MANAGEMENT, OTHER_INFRA, DESASTER_RESISTANT, 
-                QUALITY_ASSURANCE, QNM, ENCUMB_FREE, GREEN_TECH, SLAC_COMMENT, OTHER_INFO, ULB_DIGITAL_SIGN, INSITU_PROJECT_NO);
+                QUALITY_ASSURANCE, QNM, ENCUMB_FREE, GREEN_TECH, SLAC_COMMENT, OTHER_INFO, DGTL_SIGN_ULB, INSITU_PROJECT_NO);
         
 
 	}
