@@ -242,7 +242,7 @@ public class BEN_GNRL_Registration {
               +"  MOBILE_NO = ?, OWNERSHIP = ?, HOUSE_TYPE = ?, NO_ROOMS = ?, AADHAR_CARD = ?, RELIGION = ?, CASTE = ?, "
               +"  BANK_NM = ?, BANK_ACC_NO = ?, BRANCH_NM = ?, YEARS_STAY = ?, SIZE_DU = ?, DISABLE = ?, MARITAL_STATUS = ?,"
               +"  OWNS_HOUSE_LAND = ?, EMPLOYMENT = ?, AVG_MONTHLY_INC = ?, "
-              +"  BPL_CARD_NO = ?, HOUSING_REQ = ?, DGTL_SIGN_ULB = ? WHERE OLD_AADHAR = ?";
+              +"  BPL_CARD_NO = ?, HOUSING_REQ = ?, DGTL_SIGN_ULB = ? WHERE AADHAR_CARD = ?";
         
         try {
             pstmt = conn.prepareStatement(sql);
@@ -318,7 +318,7 @@ public class BEN_GNRL_Registration {
                 +"  MOBILE_NO = ?, OWNERSHIP = ?, HOUSE_TYPE = ?, NO_ROOMS = ?, AADHAR_CARD = ?, RELIGION = ?, CASTE = ?, "
                 +"  BANK_NM = ?, BANK_ACC_NO = ?, BRANCH_NM = ?, YEARS_STAY = ?, SIZE_DU = ?, DISABLE = ?, MARITAL_STATUS = ?,"
                 +"  OWNS_HOUSE_LAND = ?, EMPLOYMENT = ?, AVG_MONTHLY_INC = ?, "
-                +"  BPL_CARD_NO = ?, HOUSING_REQ = ?, FMLY_HEAD_IMG_PATH = ?, DGTL_SIGN_ULB = ? WHERE OLD_AADHAR = ?";
+                +"  BPL_CARD_NO = ?, HOUSING_REQ = ?, FMLY_HEAD_IMG_PATH = ?, DGTL_SIGN_ULB = ? WHERE AADHAR_CARD = ?";
           
           try {
               pstmt = conn.prepareStatement(sql);

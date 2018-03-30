@@ -20,11 +20,13 @@
     
   <jsp:include page = "../Headers/IA_Header.jspf"/>
   
-        <nav class="topHead">
+        <nav style= "margin-top: -22px;" class="topHead">
+        
+        
          
-            <div class="nav-wrapper">
-            <ul>
-                <h4 style= "margin-left:60px;"> Format B- Required Information of Survey</h4>
+            <div class="nav1">
+            <ul >
+                <h4 style="padding-top: 10px; margin-left:60px; "> Format B- Required Information of Survey</h4>
             </ul>
             </div>
 
@@ -72,8 +74,7 @@
                     </select>
                 </div>
 
-                <Script>
-                </Script>
+                
 
                 <div class="col input-field s3"> 
                     <select required name="districtName" id="city">
@@ -187,10 +188,7 @@
             </div>
 				            <div id="memMain">
 				                <div class="row">
-				                    <p style="margin-left:10px;">Family Member 1 Details</p>
-				                    <div class="col input-field s1">
-				                        <input name="serialNumber" value=1 id="icon_prefix" type="text" class="validate">
-				                    </div>
+				                    <p style="margin-left:10px;">Family Member Details</p>
 				                    <div class="col input-field s3">
 				                        <input name="nameFam" id="icon_prefix" type="text" class="validate">
 				                        <label for="icon_prefix">Name of Family member</label>
@@ -359,6 +357,13 @@
                 </div>
 
             </div>
-            	<input type = "submit" value = "submit">    
+										<div class="row number">
+                                          <div class="input-field col proName">
+                                              <button name="submitbtn" type="submit" class="waves-effect waves-light btn fbtn">Submit</button>
+                                          </div>
+                                          <div class="input-field col proName">
+                                              <button name="canclebtn" class="waves-effect waves-light btn fbtn">Cancle</button>
+                                          </div>
+                                        </div>    
         </form>
   <jsp:include page = "../Footers/IA_Footer.jspf"/>

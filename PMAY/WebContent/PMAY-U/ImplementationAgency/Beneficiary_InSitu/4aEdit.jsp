@@ -22,8 +22,10 @@
             $('select').material_select();
         });
     </script>
-
+    
+   
 <jsp:include page = "../../Headers/IA_Header.jspf"/>
+	
 		<%
             //Creating the reference of type ResultSet
             ResultSet RS = null;
@@ -38,7 +40,7 @@
     <nav class="inSituHead">
         <div class="nav-wrapper">
           <ul>
-          <h4 style= "margin-left:60px;" >Format A-Information of Survey Being Covered Under Slum Redevelopment</h4>
+          <h4 style= "margin-left:60px; margin-top:1px; padding-top:13px;" >Format A-Information of Survey Being Covered Under Slum Redevelopment</h4>
           </ul>
         </div>
     </nav>
@@ -86,8 +88,8 @@
                     </select>
                 </div>
 
-                <Script>
-                </Script>
+                
+                
 
                 <div class="col input-field s3"> 
                     <select required name="districtName" id="city">
@@ -178,10 +180,7 @@
             %>
 				            <div id="memMain">
 				                <div class="row">
-				                    <p style="margin-left:10px;">Family Member 1 Details</p>
-				                    <div class="col input-field s1">
-				                        <input name="serialNumber" value=1 id="icon_prefix" type="text" class="validate">
-				                    </div>
+				                    <p style="margin-left:10px;">Family Member Details</p>
 				                    <div class="col input-field s3">
 				                        <input name="nameFam" id="icon_prefix" type="text" class="validate" value = "<%= RS2.getString(2) %>">
 				                        <label for="icon_prefix"><%= RS2.getString(2) %>(Name of Family member)</label>
@@ -325,14 +324,20 @@
                 	String link = "../../" + RS.getString(24).substring(58);
                                     
                 %>
-                <img  width="600" src="<%= link%>">
+                <img  width="300" src="<%= link%>">
                 
-                 
+                 <div class="row">
+                 	<p>Do you want to change the Image?</p>
+					<p>
+						<input name="img" type="radio" id="test901" value = "1"/>
+						<label for="test901">Yes</label>
+
+						<input name="img" type="radio" id="test902" value = "0"/>
+						<label for="test902">No</label>
+					</p>	
+                 </div>
                 <div class="row">
-                
-                	<input id="icon_prefix" type="text" class="validate" name = "img">
-                	
-                    <p style="margin-left:10px;">Upload a Photo of Head of the Family:</p>        
+                	<p style="margin-left:10px;">Upload a Photo of Head of the Family:</p>        
                     <p style="margin-left:10px;">(The size of the Photograph should not be more than 16kb)</p>
                     <div class="col file-field input-field">
                         <div class="btn">

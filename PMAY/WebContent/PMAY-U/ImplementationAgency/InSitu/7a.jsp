@@ -20,10 +20,10 @@
         });
      </script>
   <jsp:include page = "../../Headers/IA_Header.jspf"/>
-    <nav class="inSituHead">
+    <nav style="margin-top: 0px;"class="inSituHead">
         <div class="nav-wrapper">
           <ul>
-          <p class="brand">In-Situ Slum Redevelopment DPR</p>
+          <p style= "margin-left:60px; padding-top: 10px; margin-top:0px;"class="brand">In-Situ Slum Redevelopment DPR</p>
           </ul>
         </div>
       </nav>
@@ -446,8 +446,6 @@
                                           <div class="input-field col proName">
                                               <button name="submitbtn" type="submit" class="waves-effect waves-light btn fbtn">Submit</button>
                                         </div>
-                                        </div>
-                                        <div class="row number">
                                           <div class="input-field col proName">
                                               <button name="canclebtn" class="waves-effect waves-light btn fbtn">Cancle</button>
                                           </div>

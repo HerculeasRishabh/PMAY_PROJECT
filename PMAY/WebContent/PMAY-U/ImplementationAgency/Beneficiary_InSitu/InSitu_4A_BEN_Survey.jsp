@@ -21,15 +21,15 @@
     </script>
 
 <jsp:include page = "../../Headers/IA_Header.jspf"/>
-    <nav class="inSituHead">
+    <nav style="margin-top: -22px;" class="inSituHead">
         <div class="nav-wrapper">
           <ul>
-          <h4 style= "margin-left:60px;" >Format A-Information of Survey Being Covered Under Slum Redevelopment</h4>
+          <h4 style= "margin-left:60px; padding-top: 10px;" >Format A-Information of Survey Being Covered Under Slum Redevelopment</h4>
           </ul>
         </div>
     </nav>
 
-        <form action="http://localhost:8080/PMAY/BEN_InSitu_Registration" method = "POST" enctype="multipart/form-data">
+        <form style= "margin-left:60px;" action="http://localhost:8080/PMAY/BEN_InSitu_Registration" method = "POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col input-field s3">
                     <select required name="stateName" onChange="changecat(this.value);">
@@ -161,10 +161,7 @@
             </div>
 				            <div id="memMain">
 				                <div class="row">
-				                    <p style="margin-left:10px;">Family Member 1 Details</p>
-				                    <div class="col input-field s1">
-				                        <input name="serialNumber" value=1 id="icon_prefix" type="text" class="validate">
-				                    </div>
+				                    <p style="margin-left:10px;">Family Member Details</p>
 				                    <div class="col input-field s3">
 				                        <input name="nameFam" id="icon_prefix" type="text" class="validate">
 				                        <label for="icon_prefix">Name of Family member</label>
@@ -285,15 +282,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="row number">
-                        <div class="input-field col proName">
-                            <button name="submitbtn" type="submit" class="waves-effect waves-light btn fbtn">Submit</button>
-                      </div>
-                      </div>
-                      <div class="row number">
-                        <div class="input-field col proName">
-                            <button name="canclebtn" class="waves-effect waves-light btn fbtn">Cancle</button>
-                        </div>
-                      </div>
+                    					<div class="row number">
+                                          <div class="input-field col proName">
+                                              <button name="submitbtn" type="submit" class="waves-effect waves-light btn fbtn">Submit</button>
+                                        </div>
+                                        </div>
+                                        <div class="row number">
+                                          <div class="input-field col proName">
+                                              <button name="canclebtn" class="waves-effect waves-light btn fbtn">Cancle</button>
+                                          </div>
+                                        </div>
                 </form>
 <jsp:include page = "../../Footers/IA_Footer.jspf"/>

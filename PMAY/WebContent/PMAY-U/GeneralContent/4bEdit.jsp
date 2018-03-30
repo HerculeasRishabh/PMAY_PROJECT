@@ -1,5 +1,5 @@
-<%@page import="beneficiary.General.connection.BEN_GNRL_Registration"%>
-<%@page import="dpr.BLC.connection.*"%>
+<%@page import="beneficiary.General.connection.*"%>
+
 <%@page import="java.sql.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
@@ -7,7 +7,7 @@
 <html>
   <head>
     
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta charset="utf-8">
     <title>Beneficiary Format B (General) Edit</title>
     <script src="../js/jquery-3.3.1.js"></script>
     <script src="../js/materialize.js"></script>
@@ -35,7 +35,7 @@
             RS.next();
 
         %>
-        <nav class="topHead">
+        <nav style= "margin-top: 2px;" class="topHead">
          
             <div class="nav-wrapper">
                 <p style="padding-left: 60px; font-size: 40px; padding-top: 17px;">Format B- Required Information of Survey Edit</p >
@@ -43,9 +43,9 @@
 
         </nav>
 
-        <form action="http://localhost:8080/PMAY/BEN_Gnrl_ULB_Update" method = "POST" enctype="multipart/form-data">
-            <div class="row">
+        <form style= "margin-left:60px;" action="http://localhost:8080/PMAY/BEN_Gnrl_ULB_Update" method = "POST" enctype="multipart/form-data">
             <input type = "hidden" value = "2" name = "old_aadhar">
+            <div class="row">
                 <div class="col input-field s3">
                     <select required name="stateName" onChange="changecat(this.value);">
                         	<option value="<%= RS.getString(2) %>"><%= RS.getString(2) %></option>
@@ -85,13 +85,9 @@
                             <option value="West Bengal">WEST BENGAL</option>
                     </select>
                 </div>
-
-                <Script>
-                </Script>
-
                 <div class="col input-field s3"> 
-                    <select required name="districtName" id="city" value = "<%= RS.getString(3) %>">
-                        <option value=""><%= RS.getString(3) %>(District)</option>
+                    <select required name="districtName" id="city" >
+                        <option value = "<%= RS.getString(3) %>"><%= RS.getString(3) %>(District)</option>
                     </select>
                 </div>
             </div>
@@ -200,14 +196,13 @@
                 </div>
             </div>
             <%
+            	int iFam = 1;
             	while (RS2.next()){
+            	    
             %>
 				            <div id="memMain">
 				                <div class="row">
 				                    <p style="margin-left:10px;">Family Members Details</p>
-				                    <div class="col input-field s1">
-				                        <input name="serialNumber" value=1 id="icon_prefix" type="text" class="validate">
-				                    </div>
 				                    <div class="col input-field s3">
 				                        <input name="nameFam" id="icon_prefix" type="text" class="validate" value = "<%= RS2.getString(2) %>">
 				                        <label for="icon_prefix"><%= RS2.getString(2) %>(Name of Family membe)r</label>
@@ -249,7 +244,7 @@
             <div class="row">
                 <div class="col input-field s3">
                     <select required name="religionName">
-                        <option value="<%= RS.getString(20) %>"><%= RS.getString(20) %></option>
+                        <option value="<%= RS.getString(20) %>"><%= RS.getString(20) %> (Religion)</option>
                         <option value="Hindu">Hindu</option>
                         <option value="Islam">Islam</option>
                         <option value="Christianity">Christianity</option>
@@ -261,7 +256,7 @@
                 </div>
                 <div class="col input-field s3">
                     <select required name="casteName">
-                        <option value="<%= RS.getString(21) %>"><%= RS.getString(21) %></option>
+                        <option value="<%= RS.getString(21) %>"><%= RS.getString(21) %> (Caste)</option>
                         <option value="General">General</option>
                         <option value="SC">SC</option>
                         <option value="ST">ST</option>
@@ -290,7 +285,7 @@
             <div class="row">
                 <div class="col input-field s3"> 
                     <select required name="yearStay">
-                        <option value="<%= RS.getString(25) %>"><%= RS.getString(25) %></option>
+                        <option value="<%= RS.getString(25) %>"><%= RS.getString(25) %> (Years Stay)</option>
                         <option value="0 to 1 Year">0 to 1 Year</option>
                         <option value="1 to 3 Year">1 to 3 Years</option>
                         <option value="3 to 5 Years">3 to 5 Years</option>
@@ -364,7 +359,7 @@
             <div class="row">
                 <div class="col input-field s3"> 
                     <select required name="maritalStatus">
-                        <option value="<%= RS.getString(28) %>"><%= RS.getString(28) %></option>
+                        <option value="<%= RS.getString(28) %>"><%= RS.getString(28) %>(Marital Status)</option>
                         <option value="Married">Married</option>
                         <option value="Un-Married">Un-Married</option>
                         <option value="Single Woman or Widow">Single Woman or Widow</option>
@@ -402,7 +397,7 @@
             </div>
 
             <div class="row">
-            	<input type = "number" name = "img">
+            	
                 <%
                 	String link = "../" + RS.getString(34).substring(58);
                                     
@@ -411,7 +406,9 @@
                 
                  
                 <div class="row">
+                
                 	<input id="icon_prefix" type="text" class="validate" name = "img">
+                	
                     <p style="margin-left:10px;">Upload a Photo of Head of the Family:</p>        
                     <p style="margin-left:10px;">(The size of the Photograph should not be more than 16kb)</p>
                     <div class="col file-field input-field">
@@ -425,12 +422,7 @@
                     </div>
                 </div>
                 </div>
-                
-				<div class="row number">
-                	<div class="input-field col proName">
-                            <button name="submitbtn" type="submit" class="waves-effect waves-light btn fbtn">Submit</button>
-                    </div>
-	      		</div>
+               <input name="Submit" type = "submit" value = "submit">    
                            
         </form>
 <jsp:include page = "../Footers/IA_Footer.jspf"/>

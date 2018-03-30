@@ -1,6 +1,8 @@
 package beneficiary.General.Servlet;
 
 import java.io.File;
+
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -40,6 +42,7 @@ public class BEN_Gnrl_ULB_Update extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	    response.setContentType("text/html");
+	    
         String savePath = "/Users/rishabhojha/git/PMAY_PROJECT/PMAY/WebContent/PMAY-U" + File.separator + SAVE_DIR;
         File fileSaveDir=new File(savePath);
         if(!fileSaveDir.exists()){
@@ -56,13 +59,13 @@ public class BEN_Gnrl_ULB_Update extends HttpServlet {
         String FMLY_HEAD_NM = request.getParameter ("famHeadName");
         String SEX = request.getParameter ("gender");
         String FATHERS_NAME = request.getParameter ("fathersName");
-        byte FMLY_HEAD_AGE = Byte.parseByte(request.getParameter ("headAge"));
+        String FMLY_HEAD_AGE = request.getParameter ("headAge");
         String HOUSE_NO = request.getParameter ("addressHouseNumber");
         String STREET = request.getParameter ("addressStreetName");
         String MOBILE_NO = request.getParameter ("mobileNumber");
         String OWNERSHIP = request.getParameter ("ownershipDetails");
         String HOUSE_TYPE = request.getParameter ("houseType");
-        byte NO_ROOMS = Byte.parseByte(request.getParameter ("noOfRooms"));
+        String NO_ROOMS = request.getParameter ("noOfRooms");
         String AADHAR_CARD = request.getParameter ("aadharNumber");
         String RELIGION = request.getParameter ("religionName");
         String CASTE = request.getParameter ("casteName");
@@ -70,25 +73,25 @@ public class BEN_Gnrl_ULB_Update extends HttpServlet {
         String BANK_ACC_NO = request.getParameter ("accountNumber");
         String BRANCH_NM = request.getParameter ("branchName");
         String YEARS_STAY = request.getParameter ("yearStay");
-        BigDecimal SIZE_DU = new BigDecimal (request.getParameter ("dwellingUnits"));
-        byte DISABLE = Byte.parseByte(request.getParameter ("disability"));
+        String SIZE_DU = request.getParameter ("dwellingUnits");
+        String DISABLE = request.getParameter ("disability");
         String MARITAL_STATUS = request.getParameter ("maritalStatus");
-        byte OWNS_HOUSE_LAND = Byte.parseByte(request.getParameter ("ownsHouseLand"));
+        String OWNS_HOUSE_LAND = request.getParameter ("ownsHouseLand");
         String EMPLOYMENT = request.getParameter ("employmentStatus");
-        BigDecimal AVG_MONTHLY_INC = new BigDecimal (request.getParameter ("monthlyIncome"));
+        String AVG_MONTHLY_INC = request.getParameter ("monthlyIncome");
         String BPL_CARD_NO = request.getParameter ("BLP_Card_No");
         String HOUSING_REQ = request.getParameter ("housingRequirement");
         
         //String DGTL_SIGN_ULB = request.getParameter ("");
         String DGTL_SIGN_ULB = "Test1";
         String OLD_AADHAR = request.getParameter("old_aadhar");
-        int img = Integer.parseInt(request.getParameter("img"));
+        String img = request.getParameter("img");
         
         int run = -1;
         
         BEN_GNRL_Registration obj = new BEN_GNRL_Registration();
         
-        if (img == 1){
+        if (Integer.parseInt(img)== 1){
 
             Part IMG_PATH = request.getPart ("imageBeneficiary");
             
@@ -97,15 +100,15 @@ public class BEN_Gnrl_ULB_Update extends HttpServlet {
             String FMLY_HEAD_IMG_PATH= savePath + File.separator + time + ".jpg"; 
             
             run = obj.beneficiaryGeneralUpdate_IA_Img(STATE, DISTRICT, CITY, WARD, SLUM_NAME, AREA_NAME, HFA_VERTICAL, FMLY_HEAD_NM, SEX, FATHERS_NAME,
-                    FMLY_HEAD_AGE, HOUSE_NO, STREET, MOBILE_NO, OWNERSHIP, HOUSE_TYPE, NO_ROOMS, AADHAR_CARD, RELIGION, CASTE, BANK_NM, 
-                    BANK_ACC_NO, BRANCH_NM, YEARS_STAY, SIZE_DU, DISABLE, MARITAL_STATUS, OWNS_HOUSE_LAND, EMPLOYMENT, AVG_MONTHLY_INC, 
+                    Byte.parseByte(FMLY_HEAD_AGE), HOUSE_NO, STREET, MOBILE_NO, OWNERSHIP, HOUSE_TYPE, Byte.parseByte(NO_ROOMS), AADHAR_CARD, RELIGION, CASTE, BANK_NM, 
+                    BANK_ACC_NO, BRANCH_NM, YEARS_STAY, new BigDecimal (SIZE_DU), Byte.parseByte(DISABLE), MARITAL_STATUS, Byte.parseByte(OWNS_HOUSE_LAND), EMPLOYMENT, new BigDecimal (AVG_MONTHLY_INC), 
                     BPL_CARD_NO, HOUSING_REQ, FMLY_HEAD_IMG_PATH, DGTL_SIGN_ULB, OLD_AADHAR);
             
         }else{
             
             run = obj.beneficiaryGeneralUpdate_IA(STATE, DISTRICT, CITY, WARD, SLUM_NAME, AREA_NAME, HFA_VERTICAL, FMLY_HEAD_NM, SEX, FATHERS_NAME,
-                    FMLY_HEAD_AGE, HOUSE_NO, STREET, MOBILE_NO, OWNERSHIP, HOUSE_TYPE, NO_ROOMS, AADHAR_CARD, RELIGION, CASTE, BANK_NM, 
-                    BANK_ACC_NO, BRANCH_NM, YEARS_STAY, SIZE_DU, DISABLE, MARITAL_STATUS, OWNS_HOUSE_LAND, EMPLOYMENT, AVG_MONTHLY_INC, 
+                    Byte.parseByte(FMLY_HEAD_AGE), HOUSE_NO, STREET, MOBILE_NO, OWNERSHIP, HOUSE_TYPE, Byte.parseByte(NO_ROOMS), AADHAR_CARD, RELIGION, CASTE, BANK_NM, 
+                    BANK_ACC_NO, BRANCH_NM, YEARS_STAY, new BigDecimal (SIZE_DU), Byte.parseByte(DISABLE), MARITAL_STATUS, Byte.parseByte(OWNS_HOUSE_LAND), EMPLOYMENT, new BigDecimal (AVG_MONTHLY_INC), 
                     BPL_CARD_NO, HOUSING_REQ, DGTL_SIGN_ULB, OLD_AADHAR);
             
         }
