@@ -115,7 +115,11 @@
               </ul> 
             <li><a href="#!">InSitu</a></li>
             <li><a href="#!">Affordable Housing Partnership</a></li>
-            <li><a href="#!">Beneficiary Lead Construction</a></li>
+            <li><a class='dropdown-button' href='#' data-activates='dropdownN' data-hover="hover" data-alignment="left" href="#!">Beneficiary Lead Construction</a></li>
+	            <ul id="dropdownN" class='drop2 dropdown-content dropdown-nested'>
+	              <li><a href="http://localhost:8080/PMAY/PMAY-U/Reports/BLC/BLC_Graphs.jsp">Visualized Data</a></li>
+	              <li><a href="#!">Mined Data</a></li>
+	             </ul>
           </ul>
           <ul style="margin-top:65px;" id='attachBeneficiary' class='dropdown-content'>
             <li><a class='dropdown-button' href='#' data-activates='dropdownX2' data-hover="hover" data-alignment="left">InSitu</a></li>

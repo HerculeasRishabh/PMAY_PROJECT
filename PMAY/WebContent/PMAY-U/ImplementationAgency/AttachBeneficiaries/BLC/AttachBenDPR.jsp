@@ -182,7 +182,7 @@ input {margin-bottom: 5px; padding: 2px 3px; width: 98px;}
                             <td><div style="margin-right:20px;"><%= RS.getString(16)%></div></td>
                             <td><div style="margin-right:20px;"><%= RS.getString(17)%></div></td>
                             <td><div style="margin-right:20px;"><%= RS.getString(18)%></div></td>
-                            <td><div style="margin-right:20px;"><%= RS.getString(19)%></div></td>
+                            <td><div style="margin-right:20px;"><%= RS.getString(19).substring(3) + "****"%></div></td>
                             <td><div style="margin-right:20px;"><%= RS.getString(20)%></div></td>
                             <td><div style="margin-right:20px;"><%= RS.getString(21)%></div></td>
                             <td><div style="margin-right:20px;"><%= RS.getString(22)%></div></td>

@@ -196,7 +196,7 @@
                 </div>
                 <div class="col input-field s4">
                     <input required name="aadharNumber" id="icon_prefix" type="number" class="validate" value="<%= RS.getString(19) %>">
-                    <label for="icon_prefix"><%= RS.getString(19) %>(Aadhar Card Number)</label>
+                    <label for="icon_prefix"><%= RS.getString(19).substring(1) + "******" %>(Aadhar Card Number)</label>
                 </div>
             </div>
             <%

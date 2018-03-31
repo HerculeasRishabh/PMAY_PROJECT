@@ -82,7 +82,7 @@
                                 <td><%= RS.getString(10)%></td>
                                 <td><%= RS.getString(21)%></td>
                                 <td><%= RS.getString(20)%></td>
-                                <td><%= RS.getString(19)%></td>
+                                <td><%= RS.getString(19).substring(3) + "****"%></td>
 
 
                                 <td>
