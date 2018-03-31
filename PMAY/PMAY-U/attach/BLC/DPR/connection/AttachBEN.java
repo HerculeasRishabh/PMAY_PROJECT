@@ -68,6 +68,28 @@ public class AttachBEN {
         
     }//end of selectAllBEN_Gnrl
     
+    public int numberAttachedBEN (int BLC_PROJECT_NUM){
+        
+        sql = "SELECT COUNT(*) FROM BLC_ATTACH_BEN WHERE BLC_PROJECT_NUM = ?;";
+        
+        try {
+           
+            pstmt = conn.prepareStatement(sql);
+            
+            pstmt.setInt(1, BLC_PROJECT_NUM);
+
+            rs = pstmt.executeQuery();
+            rs.next();
+            
+            return rs.getInt(1);
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return counter;
+
+    }//end of numberAttachedBEN
+    
     /////////////////////////////////////// Insert Attach Beneficiary ///////////////////////////////
     
     public void attachBEN_BLC (int SURVEY_NO, int BLC_DPR_NO) {

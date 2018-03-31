@@ -17,20 +17,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0,maximum-scale=1">
-<title>7c Complete list of all dpr</title>
+<title>Complete list of all Rejected DPR's</title>
 <!-- Loading third party fonts -->
 
 <!-- Loading main css file ->
         <link rel="stylesheet" href="../css/header.css">-->
-<script src="../../js/jquery-3.3.1.js"></script>
-<script src="../../js/materialize.js"></script>
-<script src="../../js/material.js"></script>
-<script src="../../js/sendData.js"></script>
-<link rel="stylesheet" href="../../css/style.css">
-<link rel="stylesheet" href="../../css/materialize.css">
-<link rel="stylesheet" href="../../css/material.css">
+<script src="../js/jquery-3.3.1.js"></script>
+<script src="../js/materialize.js"></script>
+<script src="../js/material.js"></script>
+<script src="../js/sendData.js"></script>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/materialize.css">
+<link rel="stylesheet" href="../css/material.css">
 <!-- <link rel="stylesheet" href="../../css/table.css"> -->
-<link rel="stylesheet" href="../../css/Header_Final.css">
+
 
 
 <style>
@@ -90,7 +90,7 @@ tr:hover {
 </style>
 
 
-<jsp:include page="../../Headers/IA_Header.jspf" />
+<jsp:include page="../Headers/IA_Header.jspf" />
 <%
 	String sign = (String) session.getAttribute("ULB_SIGN");
 	String name = (String) session.getAttribute("ULB_NAME");
@@ -103,17 +103,13 @@ tr:hover {
 	<div class="nav-wrapper"
 		style="margin-left: 10%; width: 80%; background-color: green;">
 		<center>
-			<h3 style="margin-left: 60px;">Complete list of General
-				Beneficiary</h3>
+			<h3 style="margin-left: 60px;">Rejected DPR's</h3>
 		</center>
 	</div>
 </nav>
 <br>
 <br>
 <div>
-	<br>
-	<div style="width:400px;margin-left: 100px;background-color: yellow;"><h6>LoggedIN(<%=sign%>:<%=name%>)</h6></div>
-	
 	<form action="">
 		<div class="">
 			<div style="overflow-x: auto; margin-left: 120px;">
@@ -158,6 +154,7 @@ tr:hover {
 						<th><div>OTHER_INFO</div></th>
 						<th><div>SUBMISSION_TO_SLSMC</div></th>
 						<th><div>STATUS</div></th>
+						<th><div>SLSMC_COMMENT</div></th>
 						<th><div>SLSMC_APPROVAL</div></th>
 						<th><div>CSMC_APPROVAL</div></th>
 						<th><div>ULB_DIGITAL_SIGN</div></th>
@@ -176,7 +173,7 @@ tr:hover {
 						//Creating the object of AdminVewRequestBean
 						DPR_BLC_connection obj = new DPR_BLC_connection(); //Using the static show_Customer_NV() function of Customer
 
-						RS = obj.select_blc_dpr(state, district);
+						RS = obj.selectBLC_SLAC_Rejected(state, district);
 
 						
 						int i = 1;
@@ -227,32 +224,22 @@ tr:hover {
 						<td><div><%=RS.getString(43)%></div></td>
 						<td><div><%=RS.getString(44)%></div></td>
 						<td><div><%=RS.getString(45)%></div></td>
-						<td><div><%=RS.getString(47)%></div></td>
-						<td><div><%=RS.getString(48)%></div></td>
 						<td><div><%=RS.getString(46)%></div></td>
+						<td><div><%=RS.getString(48)%></div></td>
 						<td><div><%=RS.getString(49)%></div></td>
 						<td><div><%=RS.getString(50)%></div></td>
 						<td><div><%=RS.getString(51)%></div></td>
 						<td><div><%=RS.getString(52)%></div></td>
 						<td><div><%=RS.getString(53)%></div></td>
-						<td><a href="7cEdit.jsp?BLCNo=<%=RS.getString(1)%>">click
+						<td><a href="7cSLSMC_Feedback.jsp?Blc_Project_No=<%=RS.getInt(1)%>">click
 								me</a></td>
-
 						<%
 							}
 						%>
-
-
 					</tr>
 				</table>
-
 			</div>
 		</div>
-
-
-
 	</form>
-
 </div>
-
-<jsp:include page="../../Footers/IA_Footer.jspf" />
+<jsp:include page="../Footers/IA_Footer.jspf" />

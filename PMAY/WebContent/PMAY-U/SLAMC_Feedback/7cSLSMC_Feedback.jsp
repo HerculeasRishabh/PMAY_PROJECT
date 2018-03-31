@@ -11,35 +11,35 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>BLC 7C Edit</title>
-        <script src="../../js/jquery-3.3.1.js"></script>
-        <script src="../../js/materialize.js"></script>
-        <script src="../../js/stateCity.js"></script>
+        <title>BLC 7C SLSMC Feedback</title>
+        <script src="../js/jquery-3.3.1.js"></script>
+        <script src="../js/materialize.js"></script>
+        <script src="../js/stateCity.js"></script>
         <!-- <script src="../js/bootstrap.min.js"></script> -->
-        <script src="../../js/material.js"></script>
-        <link rel="stylesheet" href="../../css/materialize.css">
-        <link rel="stylesheet" href="../../css/material.css">
-        <link rel="stylesheet" href="../../css/style1.css">
+        <script src="../js/material.js"></script>
+        <link rel="stylesheet" href="../css/materialize.css">
+        <link rel="stylesheet" href="../css/material.css">
+        <link rel="stylesheet" href="../css/style1.css">
         <script>
             $(document).ready(function () {
                 $('select').material_select();
             });
         </script>
-        <jsp:include page = "../../Headers/IA_Header.jspf"/>
+        <jsp:include page = "../Headers/IA_Header.jspf"/>
 
    		<nav style="margin-top: -10px; width: 80%; margin-left: 10%" class="topHead">
 	        <div class="nav-wrapper " style=" background-color: #bf360c ;">
 	          <ul>
 	          	<center>
-	          		<h4 style= "font-size:20px; padding-top: 20px;" >Beneficiary led Construction or Enhancement Edit</h4>
+	          		<h4 style= "font-size:20px; padding-top: 20px;" >STATUS: Rejected By SLSMC</h4>
 	          	</center>
 	          </ul>
 	        </div>
       	</nav>
 
         <%
+            int BLC_PROJECT_NO = Integer.parseInt (request.getParameter("Blc_Project_No")); 
             //Creating the reference of type ResultSet
-            int BLC_PROJECT_NO = Integer.parseInt(request.getParameter("BLCNo"));
             ResultSet RS = null;
             DPR_BLC_connection obj = new DPR_BLC_connection();
             RS = obj.selectRecord7cEdit(BLC_PROJECT_NO);
@@ -48,9 +48,8 @@
 
         %>
 
-        <form style="margin-left: 11%" action="http://localhost:8080/PMAY/BLC_ULB_DPR_Update" method = "POST">
-            
-            <input type = "hidden" name = "BLC_PROJECT_NO" value = "<%= BLC_PROJECT_NO %>">
+        <form style="margin-left: 11%" action="http://localhost:8080/PMAY/BLC_ULB_SLSMC_RejectedDPR" method = "POST">
+            <input type = "hidden" name = "BLC_PROJECT_NO" value = "<%= BLC_PROJECT_NO%>">
             <div class="row">
                 <div class="col input-field s3">
                     <select required name="stateName" onChange="changecat(this.value);">
@@ -781,10 +780,16 @@
                     <label for="projectBrief"><%= RS.getString(44)%>(story)</label>
                 </div>
             </div>
+            <div class="row">
+                <div class="col input-field s12">
+                    <input name="SLSMCFeedback" id="otherInfo" type="text" class="validate" value = "<%= RS.getString(46)%>">
+                    <label for="projectBrief"><%= RS.getString(46)%>(SLSMC FEEDBACK)</label>
+                </div>
+            </div>
             <div style="margin-left: 35%;" class="row">
                 <div class="col">
                     <a class="waves-effect waves-light btn"><input name="Save" type="submit"></a>
                 </div>
             </div> 
         </form>
-       <jsp:include page = "../../Footers/IA_Footer.jspf"/>
+       <jsp:include page = "../Footers/IA_Footer.jspf"/>

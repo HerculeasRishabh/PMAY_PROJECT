@@ -27,11 +27,14 @@
 	      	});
 	    </script>
 	    <%
+	    	String state = (String) session.getAttribute("ULB_STATE");
+	    	String district = (String) session.getAttribute("ULB_DISTRICT");
+	    
 	    	DPR_BLC_connection obj = new DPR_BLC_connection ();
 	    
 	    	ResultSet RS = null;
 	    	
-	    	RS = obj.selectBLC_DPR();
+	    	RS = obj.selectBLC_DPR(state, district);
 	    %>
 	    
       	<form style="margin-left: 40%;" action = "http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/AttachBeneficiaries/BLC/AttachBenDPR.jsp" method = "POST">

@@ -105,7 +105,7 @@
           </ul>
           <ul  style="margin-top:65px;" id="feedback" class="dropdown-content">
             <li><a href="#!">CSMC</a></li>
-            <li><a href="#!">SLSMC</a></li>
+            <li><a href="http://localhost:8080/PMAY/PMAY-U/SLAMC_Feedback/SLSMC_ShowAll.jsp">SLSMC</a></li>
           </ul>
           <ul style="margin-top:65px;" id="report" class="dropdown-content">
             <li><a class='dropdown-button' href='#' data-activates='dropdownM' data-hover="hover" data-alignment="left">Beneficiary</a></li>
