@@ -61,7 +61,7 @@ public class ULB_Login {
     
     public ResultSet ulbLogin(String USER_NAME, String ULB_PASS){
 
-        sql = "SELECT ULB_DIGITAL_SIGN FROM ULB_LOGIN WHERE ULB_USER_NAME = ? AND ULB_PASS = ?;";
+        sql = "SELECT * FROM ULB_LOGIN WHERE ULB_USER_NAME = ? AND ULB_PASS = ?;";
         
         try {
            

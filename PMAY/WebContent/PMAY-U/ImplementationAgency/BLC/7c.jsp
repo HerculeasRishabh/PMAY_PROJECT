@@ -21,13 +21,18 @@
      </script>
      
   <jsp:include page = "../../Headers/IA_Header.jspf"/>
-
-        <nav class="header">
-             <div class="nav-wrapper">
-              <p style ="padding-left: 60px; font-size: 20px; padding-top:20px;">Beneficiary led Construction or Enhancement DPR</p >
-             </div>    
-        </nav>  
-        <form action="http://localhost:8080/PMAY/BLC_ULB_DPR_Insert" method = "POST">
+  
+        <nav style="margin-top: -10px; width: 80%; margin-left: 10%" class="topHead">
+	        <div class="nav-wrapper " style=" background-color: #bf360c ;">
+	          <ul>
+	          	<center>
+	          		<h4 style= "font-size:20px; padding-top: 20px;" >Beneficiary Led Construction or Enhancement DPR</h4>
+	          	</center>
+	          </ul>
+	        </div>
+      	</nav>
+      	
+        <form style="margin-left: 11%" action="http://localhost:8080/PMAY/BLC_ULB_DPR_Insert" method = "POST">
             <div class="row">
                  <div class="col input-field s3">
                         <select required name="stateName" onChange="changecat(this.value);">

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
@@ -18,12 +17,18 @@
         });
      </script>
 <jsp:include page = "../../Headers/IA_Header.jspf"/>
-        <nav class="header">
-             <div class="nav-wrapper">
-              <p style ="padding-left: 60px; font-size: 20px; padding-top:20px;">Affordable Housing in Partnership DPR</p >
-             </div>    
-        </nav>  
-        <form action="http://localhost:8080/PMAY/AHP_ULB_DPR_Insert" method = "POST">
+        
+        <nav style="margin-top: -10px; width: 80%; margin-left: 10%" class="topHead">
+	        <div class="nav-wrapper " style=" background-color: #bf360c ;">
+	          <ul>
+	          	<center>
+	          		<h4 style= "font-size:20px; padding-top: 20px;" >Format B- Required Information of Survey</h4>
+	          	</center>
+	          </ul>
+	        </div>
+      	</nav>
+        
+        <form style="margin-left: 11%"  action="http://localhost:8080/PMAY/AHP_ULB_DPR_Insert" method = "POST">
             <div class="row">
                  <div class="col input-field s3">
                     <select required name="stateName" onChange="changecat(this.value);">
@@ -285,7 +290,7 @@
                        </div>
                        <!--@-->
                         <div class="row">
-                          <p class="col"> Whether technical Specification/design for housin have been ensured as per Indian Standards/NBC/State Norms:</p>
+                          <p class="col"> Whether technical Specification/design for housing have been ensured as per Indian Standards/NBC/State Norms:</p>
                           <p class="col" style="margin-left:50px;">
                             <input required class="with-gap" name="technicalSpecification" type="radio" id="test7" value = "1"/>
                             <label for="test7" >Yes</label>
@@ -306,8 +311,8 @@
                                   <label for="test10">No</label>
                                 </p>
                             </div>
-                            
-                           </div>
+                             
+                           <div margin-left=60px;>
                            <p class="row"> Whether the provision of Civic Infrastructure has been made as per applicable State norms/CPHEEO Norms/IS Code/NBC: </p>
                           <div class="row">
                               <p class="col">Water Supply: </p>
@@ -462,7 +467,7 @@
                                           <label for="projectBrief">Project Brief including any other information ULB/State would like to furnish</label>
                                   </div>
                               </div>
-                                <div style="margin-left: 50px" class="row">
+                                <div style="margin-left: 35%" class="row">
                                   <div class="col">
                             		<button name="submitbtn" type="submit" class="waves-effect waves-light btn fbtn">Submit</button>
                                   </div>
@@ -470,6 +475,7 @@
                                       <a class="waves-effect waves-light btn">Cancel</a>
                                   </div>
                                 </div>
+                      </div>
                       </div>
         </form>
     <jsp:include page = "../../Footers/IA_Footer.jspf"/>

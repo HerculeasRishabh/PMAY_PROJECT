@@ -169,6 +169,29 @@ public class DPR_BLC_connection {
         return rs;
     }//end of selectRecord7cEdit
     
+    /**
+     * This method is used to select the BLC_DPRs
+     * @return
+     */
+    public ResultSet selectBLC_DPR (){
+        
+        sql = "SELECT BLC_PROJECT_NO, PROJECT_NM FROM BLC_DPR";
+        
+        try {
+           
+            pstmt = conn.prepareStatement(sql);
+
+            rs = pstmt.executeQuery();
+            
+            return rs;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return rs;
+       
+    }//end of selectBLC_DPR
+    
    
     ///////////////////////////////////////Update Data in Database//////////////////////////////////
     /**
@@ -253,6 +276,57 @@ public class DPR_BLC_connection {
          }
          
      }//end of blc_DPR_Update_IA
+     
+     //*********************************by hari start*******************************
+     
+     public ResultSet selectAllblc_dpr(){
+
+         sql = "SELECT * FROM BLC_DPR";
+         
+         try {
+            
+             pstmt = conn.prepareStatement(sql);
+             
+                    
+             
+
+             rs = pstmt.executeQuery();
+             
+             return rs;
+             
+         } catch (SQLException ex) {
+             ex.printStackTrace();
+         }
+         return rs;
+     }//end of selectRecord7cEdit
+
+     //*********************************by hari end*******************************
+     //*********************************by hari start*******************************
+        
+        public ResultSet select_blc_dpr(String S,String D){
+
+            sql = "select * from blc_dpr where state=? && district=?;";
+            
+            try {
+               
+                pstmt = conn.prepareStatement(sql);
+                
+                pstmt.setString(1, S);
+                pstmt.setString(2, D);
+                
+
+                rs = pstmt.executeQuery();
+                
+                return rs;
+                
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            return rs;
+        }//end of selectRecord7cEdit
+        
+        //*********************************by hari end*******************************
+
 
     
 }//End of class

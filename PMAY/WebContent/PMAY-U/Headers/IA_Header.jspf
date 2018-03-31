@@ -5,45 +5,68 @@
 		overflow:visible!important;
 	 }
 	 
+	 #beneficiaryRegistration{
+		overflow:visible!important;
+	 }
 	 #attachBeneficiary{
 		overflow:visible!important;
 	 }
-	 
-	 #beneficiaryRegistration{
-	 	overflow:visible!important;
-	 }
-	 #report{
-		overflow:visible!important;
-	 }
-	 
 	 .dropdown-content .dropdown-content {
 	    margin-left: 100%;
 	    
 	 }
 	 
-	 .dropdown-content:HOVER{
-	 	
-	 }
+	 
+	#dropdownM{
+		margin-right: 200% !important;
+	 	overflow: visible !important;
+	}
+	
+	.drop2{
+		margin-right: 200% !important;
+	}
+	
+	.drop1{
+		border: 2px solid #ff7043;
+		font-size: 20px;
+	}
 	
 	 .page-footer {
 		background-color: #f4511e ;
  	}
+ 	
+ 	a:hover {
+    font-weight:bold;
+    }
 	</style>
-    <nav class="nav-extended">
-          <div style="background-color: #f4511e;" class="nav-wrapper">
+	<div style="position: relative;">
+		<div class="col" style="position: absolute; right:0;">
+				<div style=" height: 10px !important; margin-right: -10px;" id="google_translate_element"></div><script type="text/javascript">
+				function googleTranslateElementInit() {
+				  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'hi', layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT}, 'google_translate_element');
+				}
+				</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		</div>
+		<div>
+			<img src="http://pmayg.nic.in/netiay/images/header-main4.png" height=120px width=100%>
+		</div>
+	</div>
+	
+	<nav class="nav-extended">
+          <div style="background-color: #ff7043;" class="nav-wrapper">
             <a  href="#" class="brand-logo center">Urban Local Body</a>
           </div>
         </nav>
-      <nav>
+      <nav  align="center" style="background-color: #f4511e">
          <div class="nav-wrapper">
-           <ul style="background-color: #f4511e; width: 100%; text-align:center;" class="left">
-            	 <li><a style="height: 65px; width:240px; padding-top:15px; font-size:20px;" class='dropdown-button' href='#' data-activates="beneficiaryRegistration">Beneficiary Registration</a></li>
-                 <li><a style="height: 65px; width:240px; padding-top:15px; font-size:20px;" class="dropdown-button" href="#" data-activates="attachBeneficiary">Attach Beneficiary</a></li>
-                 <li><a style="height: 65px; width:240px; padding-top:15px; font-size:20px;" class="dropdown-button" href="#" data-activates="dpr">DPR</a></li>
-                 <li><a style="height: 65px; width:240px; padding-top:15px; font-size:20px;" class="dropdown-button" href="#" data-activates="feedback">Feedback</a></li>
-             	 <li><a style="height: 65px; width:240px; padding-top:15px; font-size:20px;" class="dropdown-button" href="#" data-activates="report">Report</a></li>
-           </ul>
-           </div>
+	           <ul style="background-color: #f4511e;" class="left">
+	            	 <li><a style="height: 65px; width:260px; padding-top:19px; font-size:17px;" data-hover="hover" class='dropdown-button drop1' href='#' data-activates="beneficiaryRegistration">Beneficiary Registration</a></li>
+	                 <li><a style="height: 65px; width:260px; padding-top:19px; font-size:17px;" data-hover="hover" class="dropdown-button drop1" href="#" data-activates="attachBeneficiary">Attach Beneficiary</a></li>
+	                 <li><a style="height: 65px; width:240px; padding-top:19px; font-size:17px;" data-hover="hover" class="dropdown-button drop1" href="#" data-activates="dpr">DPR</a></li>
+	                 <li><a style="height: 65px; width:260px; padding-top:19px; font-size:17px;" data-hover="hover" class="dropdown-button drop1" href="#" data-activates="feedback">Feedback</a></li>
+	             	 <li><a style="height: 65px; width:260px; padding-top:19px; font-size:17px;" data-hover="hover" class="dropdown-button drop1" href="#" data-activates="report">Report</a></li>
+	           </ul>
+          </div>
       </nav>
         <nav class="nav-extended">
         <!-- Dropdown Structure -->
@@ -77,7 +100,7 @@
             <li><a class='dropdown-button' href='#' data-activates='dropdownC' data-hover="hover" data-alignment="right">Beneficiary Lead Construction</a></li>
               <ul id="dropdownC"  class='dropdown-content dropdown-nested'>
               <li><a href="http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/BLC/7c.jsp">New DPR</a></li>
-              <li><a href="#!">Edit DPR</a></li>
+              <li><a href="http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/BLC/7cSelectAllEdit.jsp">Edit DPR</a></li>
               </ul> 
           </ul>
           <ul  style="margin-top:65px;" id="feedback" class="dropdown-content">
@@ -86,8 +109,8 @@
           </ul>
           <ul style="margin-top:65px;" id="report" class="dropdown-content">
             <li><a class='dropdown-button' href='#' data-activates='dropdownM' data-hover="hover" data-alignment="left">Beneficiary</a></li>
-              <ul id="dropdownM"  class='dropdown-content dropdown-nested'>
-              <li><a href="">Format A</a></li>
+              <ul id="dropdownM" class='drop2 dropdown-content dropdown-nested'>
+              <li><a href="#!">Format A</a></li>
               <li><a href="http://localhost:8080/PMAY/PMAY-U/Reports/Beneficiary/retrive_BEN.jsp">Format B</a></li>
               </ul> 
             <li><a href="#!">InSitu</a></li>
@@ -107,7 +130,7 @@
               </ul> 
             <li><a class='dropdown-button' href='#' data-activates='dropdownZ' data-hover="hover" data-alignment="left">Beneficiary Lead Construction</a></li>
               <ul id="dropdownZ"  class='dropdown-content dropdown-nested'>
-              <li><a href="#!">Attach Beneficiary</a></li>
+              <li><a href="http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/AttachBeneficiaries/BLC/SelectDPR.jsp">Attach Beneficiary</a></li>
               <li><a href="#!">Remove Beneficiary</a></li>
               </ul> 
           </ul>

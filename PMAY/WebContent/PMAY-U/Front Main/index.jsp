@@ -12,10 +12,18 @@
         <link rel="stylesheet" href="../css/material.css">
 </head>
 <body>
-        <div>
-            <img src="../imagesFront/header-main4.jpg" style="height:120px; width: 100%;" alt="">
-        </div>
-        
+        <div style="position: relative;">
+		<div class="col" style="position: absolute; right: 0;">
+				<div style=" height: 10px !important; margin-right: -10px;" id="google_translate_element"></div><script type="text/javascript">
+				function googleTranslateElementInit() {
+				  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'hi', layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT}, 'google_translate_element');
+				}
+				</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		</div>
+		<div>
+			<img src="http://pmayg.nic.in/netiay/images/header-main4.png" height=120px width=100%>
+		</div>
+		</div>
         <center>
             <div class="col">
                 <ul class="tabs" style="background-color: #f4511e;">

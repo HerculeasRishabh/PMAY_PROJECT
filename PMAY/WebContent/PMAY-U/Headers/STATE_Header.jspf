@@ -1,0 +1,147 @@
+
+</head>
+<body bgcolor="cornsilk" data-spy="scroll" data-target="#navbar-example">
+
+	<style>
+#dpr {
+	overflow: visible !important;
+}
+
+#attachBeneficiary {
+	overflow: visible !important;
+}
+
+.dropdown-content .dropdown-content {
+	margin-left: 100%;
+}
+
+.page-footer {
+	background-color: #f4511e;
+}
+</style>
+
+	<nav class="nav-extended">
+		<div style="background-color: #f4511e;" class="nav-wrapper">
+			<a href="#" class="brand-logo center">State Level Sanctioning and
+				Monitoring Committee</a>
+		</div>
+	</nav>
+	<nav>
+		<div class="nav-wrapper">
+			<ul
+				style="background-color: #f4511e; width: 100%; text-align: center;"
+				class="left">
+
+
+				<div style="margin-left: 20px;">
+					<li><a
+						style="height: 65px; width: 250px; padding-top: 15px; font-size: 20px;"
+						class="dropdown-button" href="#"
+						data-activates="attachBeneficiary">Attach Beneficiary</a></li>
+				</div>
+
+				<div style="margin-left: 20px;">
+					<li><a
+						style="height: 65px; width: 250px; padding-top: 15px; font-size: 20px;"
+						class="dropdown-button" href="#" data-activates="dpr">DPR</a></li>
+				</div>
+
+				<div style="margin-left: 20px;">
+					<li><a
+						style="height: 65px; width: 250px; padding-top: 15px; font-size: 20px;"
+						class="dropdown-button" href="#" data-activates="feedback">Feedback</a></li>
+				</div>
+
+				<div style="margin-left: 20px;">
+					<li><a
+						style="height: 65px; width: 250px; padding-top: 15px; font-size: 20px;"
+						class="dropdown-button" href="#" data-activates="report">Report</a></li>
+				</div>
+
+				<div style="margin-left: 20px;">
+					<li><a
+						style="height: 65px; width: 250px; padding-top: 15px; font-size: 20px;"
+						class="dropdown-button" href="#"
+						data-activates="attachBeneficiary">Register ULB</a></li>
+				</div>
+
+
+			</ul>
+		</div>
+	</nav>
+	<nav class="nav-extended">
+		<!-- Dropdown Structure -->
+		<!--beneficiaryRegistration-->
+		<ul style="margin-top: 65px;" id="beneficiaryRegistration"
+			class="dropdown-content">
+			<li><a
+				href="http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/Beneficiary_InSitu/InSitu_4A_BEN_Survey.jsp">Format
+					A</a></li>
+			<li><a
+				href="http://localhost:8080/PMAY/PMAY-U/GeneralContent/BEN_SurveyGNRL.jsp">Format
+					B</a></li>
+		</ul>
+		<!--attachBeneficiary does'nt have a dropdown-->
+		<!--DPR dropdown-->
+		<ul style="margin-top: 65px;" id='dpr' class='dropdown-content'>
+			<li><a class='dropdown-button' href='#'
+				data-activates='dropdownA' data-hover="hover" data-alignment="right">InSitu</a></li>
+			<ul id="dropdownA" class='dropdown-nested dropdown-content'>
+				<li><a
+					href="http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/InSitu/7a.jsp">New
+						DPR</a></li>
+				<li><a href="#!">Edit DPR</a></li>
+			</ul>
+			<li><a class='dropdown-button' href='#'
+				data-activates='dropdownB' data-hover="hover" data-alignment="right">Affordable
+					Housing Partnership</a></li>
+			<ul id="dropdownB" class='dropdown-content dropdown-nested'>
+				<li><a
+					href="http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/AHP/7b.jsp">New
+						DPR</a></li>
+				<li><a href="#!">Edit DPR</a></li>
+			</ul>
+			<li><a class='dropdown-button' href='#'
+				data-activates='dropdownC' data-hover="hover" data-alignment="right">Beneficiary
+					Lead Construction</a></li>
+			<ul id="dropdownC" class='dropdown-content dropdown-nested'>
+				<li><a
+					href="http://localhost:8080/PMAY/PMAY-U/ImplementationAgency/BLC/7c.jsp">New
+						DPR</a></li>
+				<li><a href="#!">Edit DPR</a></li>
+			</ul>
+		</ul>
+		<ul style="margin-top: 65px;" id="feedback" class="dropdown-content">
+			<li><a href="#!">CSMC</a></li>
+			<li><a href="#!">SLSMC</a></li>
+		</ul>
+		<ul style="margin-top: 65px;" id="report" class="dropdown-content">
+			<li><a href="#!">InSitu</a></li>
+			<li><a href="#!">Affordable Housing Partnership</a></li>
+			<li><a href="#!">Beneficiary Lead Construction</a></li>
+		</ul>
+		<ul style="margin-top: 65px;" id='attachBeneficiary'
+			class='dropdown-content'>
+			<li><a class='dropdown-button' href='#'
+				data-activates='dropdownX' data-hover="hover" data-alignment="right">InSitu</a></li>
+			<ul id="dropdownX" class='dropdown-nested dropdown-content'>
+				<li><a href="#!">Attach Beneficiary</a></li>
+				<li><a href="#!">Remove Beneficiary</a></li>
+			</ul>
+			<li><a class='dropdown-button' href='#'
+				data-activates='dropdownY' data-hover="hover" data-alignment="right">Affordable
+					Housing Partnership</a></li>
+			<ul id="dropdownY" class='dropdown-content dropdown-nested'>
+				<li><a href="#!">Attach Beneficiary</a></li>
+				<li><a href="#!">Remove Beneficiary</a></li>
+			</ul>
+			<li><a class='dropdown-button' href='#'
+				data-activates='dropdownZ' data-hover="hover" data-alignment="right">Beneficiary
+					Lead Construction</a></li>
+			<ul id="dropdownZ" class='dropdown-content dropdown-nested'>
+				<li><a href="#!">Attach Beneficiary</a></li>
+				<li><a href="#!">Remove Beneficiary</a></li>
+			</ul>
+		</ul>
+	</nav>
+	<div>

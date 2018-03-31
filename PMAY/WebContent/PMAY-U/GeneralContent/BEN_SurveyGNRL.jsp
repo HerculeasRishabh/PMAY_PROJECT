@@ -20,19 +20,18 @@
     
   <jsp:include page = "../Headers/IA_Header.jspf"/>
   
-        <nav style= "margin-top: -22px;" class="topHead">
-        
-        
-         
-            <div class="nav1">
-            <ul >
-                <h4 style="padding-top: 10px; margin-left:60px; "> Format B- Required Information of Survey</h4>
-            </ul>
-            </div>
-
-        </nav>
-
-        <form action="http://localhost:8080/PMAY/BEN_Registration" method = "POST" enctype="multipart/form-data">
+	      <nav style="margin-top: -10px; width: 80%; margin-left: 10%" class="topHead">
+	        <div class="nav-wrapper " style=" background-color: #bf360c ;">
+	          <ul>
+	          	<center>
+	          		<h4 style= "font-size:20px; padding-top: 20px;" >Format B- Required Information of Survey</h4>
+	          	</center>
+	          </ul>
+	        </div>
+	      </nav>
+	        
+        <div align="center">
+        <form style="margin-left: 11%;" action="http://localhost:8080/PMAY/BEN_Registration" method = "POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col input-field s3">
                     <select required name="stateName" onChange="changecat(this.value);">
@@ -222,7 +221,7 @@
 				                    </div>
 				                </div>
 				            </div>
-            <a style="margin-left:10px; margin-top: -15px; background-color: #f4511e" onclick="showMore()" class="waves-effect waves-light btn">add</a>
+            <a style="margin-left:-900px; margin-top: -15px; background-color: #f4511e" onclick="showMore()" class="waves-effect waves-light btn">add</a>
 
             <div class="row">
                 <div class="col input-field s3">
@@ -347,7 +346,7 @@
                 <p style="margin-left:10px;">Upload a Photo of Head of the Family:</p>        
                 <p style="margin-left:10px;">(The size of the Photograph should not be more than 16kb)</p>
                 <div class="col file-field input-field">
-                    <div class="btn">
+                    <div style="background-color: #f4511e" class="btn">
                         <span>File</span>
                         <input required name="imageBeneficiary" type="file">
                     </div>
@@ -357,13 +356,16 @@
                 </div>
 
             </div>
-										<div class="row number">
-                                          <div class="input-field col proName">
-                                              <button name="submitbtn" type="submit" class="waves-effect waves-light btn fbtn">Submit</button>
-                                          </div>
-                                          <div class="input-field col proName">
-                                              <button name="canclebtn" class="waves-effect waves-light btn fbtn">Cancle</button>
-                                          </div>
-                                        </div>    
+            							<div style="margin-left: 30%;">
+											<div class="row number">
+	                                          <div class="input-field col proName">
+	                                              <button name="submitbtn" type="submit" class="waves-effect waves-light btn fbtn">Submit</button>
+	                                          </div>
+	                                          <div class="input-field col proName">
+	                                              <button name="canclebtn" class="waves-effect waves-light btn fbtn">Cancle</button>
+	                                          </div>
+	                                        </div>    
+                                        </div>
         </form>
+        </div>
   <jsp:include page = "../Footers/IA_Footer.jspf"/>

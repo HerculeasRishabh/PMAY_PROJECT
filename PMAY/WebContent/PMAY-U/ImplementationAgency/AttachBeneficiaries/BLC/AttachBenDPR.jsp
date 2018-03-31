@@ -5,7 +5,7 @@
 --%>
 
 
-<%@page import="reports.BEN.*"%>
+<%@page import="attach.BLC.DPR.connection.*"%>
 
 <%-- This page is used to display the details of the 
        retrieve benificiary details , and then later verify them --%>
@@ -17,15 +17,15 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
-        <title>|Beneficiary Record|</title>
+        <title>Attach Beneficiary</title>
         <!-- Loading main css file -->
-        <script src="../../js/jquery-3.3.1.js"></script>
-        <script src="../../js/materialize.js"></script>
-        <script src="../../js/material.js"></script>
-        <link rel="stylesheet" href="../../css/style.css">
-        <link rel="stylesheet" href="../../css/materialize.css">
-        <link rel="stylesheet" href="../../css/material.css">
-      <!-- <link rel="stylesheet" href="../../css/table.css"> -->
+        <script src="../../../js/jquery-3.3.1.js"></script>
+        <script src="../../../js/materialize.js"></script>
+        <script src="../../../js/material.js"></script>
+        <link rel="stylesheet" href="../../../css/style.css">
+        <link rel="stylesheet" href="../../../css/materialize.css">
+        <link rel="stylesheet" href="../../../css/material.css">
+      <!-- <link rel="stylesheet" href="../../../css/table.css"> -->
         
         <style>
 
@@ -73,14 +73,14 @@ input {margin-bottom: 5px; padding: 2px 3px; width: 98px;}
             
 </style>
         
-    <jsp:include page = "../../Headers/IA_Header.jspf"/>
+    <jsp:include page = "../../../Headers/IA_Header.jspf"/>
     
         
         <nav style="margin-top: -10px; width: 80%; margin-left: 10%" class="topHead">
 	        <div class="nav-wrapper " style=" background-color: #bf360c ;">
 	          <ul>
 	          	<center>
-	          		<h4 style= "font-size:20px; padding-top: 20px;" >General Beneficiary Record</h4>
+	          		<h4 style= "font-size:20px; padding-top: 20px;" >Attach Beneficiary BLC</h4>
 	          	</center>
 	          </ul>
 	        </div>
@@ -101,7 +101,13 @@ input {margin-bottom: 5px; padding: 2px 3px; width: 98px;}
                 </div>
             </div>
         </form> -->
-        <form style="margin-top: 10px;" action="">
+        <%
+        	HttpSession session3 = request.getSession();
+                          
+			session3.setAttribute("blcDPR_name", request.getParameter ("blcDPR_name"));
+                            
+        %>
+        <form style="margin-top: 10px;" action="http://localhost:8080/PMAY/AttachBEN_BLC" method = "POST">
             <div>
                 <div style="overflow-x:auto; margin-left: 120px;">
                     <table id="table2" border="1" WIDTH="100%" >
@@ -142,7 +148,8 @@ input {margin-bottom: 5px; padding: 2px 3px; width: 98px;}
                         <th><div style="margin-right:20px;">HOUSING_REQ</div></th>
                         <th><div style="margin-right:20px;">DGTL_SIGN_ULB</div></th>
                         <th><div style="margin-right:20px;">DATE_OF_CREATION</div></th>
-                        <th style="margin-right:100px;width:450px;"><div >FMLY_HEAD_IMG_PATH</div></th>
+                        <!-- <th style="margin-right:100px;width:450px;"><div >FMLY_HEAD_IMG_PATH</div></th>  -->
+                        <th><div style="margin-right:20px;">ATTACH</div></th>
                         </tr>
                     </table>
                     <table id="table" border="1" WIDTH="100%">
@@ -150,8 +157,8 @@ input {margin-bottom: 5px; padding: 2px 3px; width: 98px;}
                             //Creating the reference of type ResultSet
                             ResultSet RS;
                             //Creating the object of AdminVewRequestBean
-                            Detailed_BEN obj = new Detailed_BEN ();
-                            RS = obj.selectBEN_Detailed(); //General Beneficiary
+                            AttachBEN obj = new AttachBEN ();
+                            RS = obj.selectAllBEN_Gnrl(); //General Beneficiary BLC
                             int i = 1;
                             while (RS.next()) {
                         %>
@@ -192,8 +199,15 @@ input {margin-bottom: 5px; padding: 2px 3px; width: 98px;}
                             <td><div style="margin-right:20px;"><%= RS.getString(33)%></div></td>
                             <td><div style="margin-right:20px;"><%= RS.getString(35)%></div></td>
                             <td><div style="margin-right:20px;"><%= RS.getString(36)%></div></td>
-                            <td style="margin-right:100px;width:450px; overflow-wrap: normal;"><div><%= RS.getString(34)%></div></td>
-                          </tr>
+                            <!-- <td style="margin-right:100px;width:450px; overflow-wrap: normal;"><div><%= RS.getString(34)%></div></td>  -->
+                            <td><div style="margin-left:70px;">
+                            								  <p style="width: 100%;">
+														      <input type="checkbox" class="filled-in" value = "1" name = "attach" id="test<%= i %>" />
+														      <label for="test<%= i %>"></label>
+														      </p>
+								</div>
+							</td>
+                          	</tr>
                           <%
                           		i++;
                             }
@@ -216,8 +230,9 @@ input {margin-bottom: 5px; padding: 2px 3px; width: 98px;}
                     </script>
 
                 </div>
-            </div>
+            </div> 
+           <input name="Submit" type = "submit" value = "submit">
         </form>
    
-            <jsp:include page="../../Footers/IA_Footer.jspf"/>
+            <jsp:include page="../../../Footers/IA_Footer.jspf"/>
  

@@ -26,12 +26,17 @@
             });
         </script>
         <jsp:include page = "../../Headers/IA_Header.jspf"/>
-        <nav class="header">
-             <div class="nav-wrapper">
-              <p style ="padding-left: 60px; font-size: 20px; padding-top:20px;">Beneficiary led Construction or Enhancement Edit</p >
-             </div>    
-        </nav>
-   
+
+   		<nav style="margin-top: -10px; width: 80%; margin-left: 10%" class="topHead">
+	        <div class="nav-wrapper " style=" background-color: #bf360c ;">
+	          <ul>
+	          	<center>
+	          		<h4 style= "font-size:20px; padding-top: 20px;" >Beneficiary led Construction or Enhancement Edit</h4>
+	          	</center>
+	          </ul>
+	        </div>
+      	</nav>
+
         <%
             //Creating the reference of type ResultSet
             ResultSet RS = null;
@@ -42,7 +47,7 @@
 
         %>
 
-        <form action="http://localhost:8080/PMAY/BLC_ULB_DPR_Update" method = "POST" style="background-color: #FFEBEE;border-width: 2px;border-radius: 20px;margin-left: 10%;width:80%;">
+        <form style="margin-left: 11%" action="http://localhost:8080/PMAY/BLC_ULB_DPR_Update" method = "POST">
             
             <input type = "hidden" name = "BLC_PROJECT_NO" value = "2">
             <div class="row">
@@ -775,7 +780,7 @@
                     <label for="projectBrief"><%= RS.getString(44)%>(story)</label>
                 </div>
             </div>
-            <div style="alignment-adjust: central;" class="row">
+            <div style="margin-left: 35%;" class="row">
                 <div class="col">
                     <a class="waves-effect waves-light btn"><input name="Save" type="submit"></a>
                 </div>

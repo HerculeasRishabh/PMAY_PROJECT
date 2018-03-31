@@ -36,13 +36,16 @@
             RS.next(); 
 
         %>
-        <br>
-        <nav class="header" style="margin-left: 10%;width:80%;">
-            <div class="nav-wrapper" style="margin-left: 20%;width:80%; background-color: green;">
-                <p style ="padding-left: 60px; font-size: 20px; padding-top:20px;">7A- Beneficiary led Construction or Enhancement Edit</p >
-            </div>    
-        </nav>  
-        <form action="http://localhost:8080/PMAY/InSitu_ULB_DPR_Update" method = "POST" style="background-color: #FFEBEE;border-width: 2px;border-radius: 20px;margin-left: 10%;width:80%;">
+        <nav style="margin-top: -10px; width: 80%; margin-left: 10%" class="topHead">
+	        <div class="nav-wrapper " style=" background-color: #bf360c ;">
+	          <ul>
+	          	<center>
+	          		<h4 style= "font-size:20px; padding-top: 20px;" >7A- Beneficiary led Construction or Enhancement Edit</h4>
+	          	</center>
+	          </ul>
+	        </div>
+      	</nav>
+        <form style="margin-left: 11%" name="inSitu" action="http://localhost:8080/PMAY/InSitu_ULB_DPR_Update" method = "POST">
             <input type = "hidden" name = "INSITU_PROJECT_NO" value = "1">
             
             <div class="row">
@@ -789,12 +792,10 @@
                     <label for="textarea1"></label>
                 </div>
             </div>
-            <div class="row number">
+            <div style="margin-left: 30%;" class="row number">
                 <div class="input-field col proName">
                     <button name="submitbtn" type="submit" class="waves-effect waves-light btn fbtn">Submit</button>
                 </div>
-            </div>
-            <div class="row number">
                 <div class="input-field col proName">
                     <button name="canclebtn" class="waves-effect waves-light btn fbtn">Cancle</button>
                 </div>

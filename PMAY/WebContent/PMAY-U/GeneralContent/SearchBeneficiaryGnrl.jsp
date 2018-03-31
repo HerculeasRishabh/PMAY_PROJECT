@@ -18,11 +18,16 @@
 
 <jsp:include page = "../Headers/IA_Header.jspf"/>
 
-<nav class="inSituHead">
-        <div class="nav-wrapper">
-          <p class="brand">Search Beneficiary</p >
+	
+      <nav style="margin-top: -10px; width: 80%; margin-left: 10%" class="topHead">
+	        <div class="nav-wrapper " style=" background-color: #bf360c ;">
+	          <ul>
+	          	<center>
+	          		<h4 style= "font-size:20px; padding-top: 20px;" >Search Beneficiary</h4>
+	          	</center>
+	          </ul>
 	        </div>
-      </nav>
+	      </nav>
 
 <center>
 <div style="margin-top: 50px; border: 1px solid black; width: 500px; margin-left: 50px; height: 350px; width: 690px;" id="d1">

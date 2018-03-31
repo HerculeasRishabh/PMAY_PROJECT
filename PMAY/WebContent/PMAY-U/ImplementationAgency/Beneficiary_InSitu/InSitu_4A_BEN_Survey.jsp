@@ -21,15 +21,16 @@
     </script>
 
 <jsp:include page = "../../Headers/IA_Header.jspf"/>
-    <nav style="margin-top: -22px;" class="inSituHead">
-        <div class="nav-wrapper">
-          <ul>
-          <h4 style= "margin-left:60px; padding-top: 10px;" >Format A-Information of Survey Being Covered Under Slum Redevelopment</h4>
-          </ul>
-        </div>
-    </nav>
-
-        <form style= "margin-left:60px;" action="http://localhost:8080/PMAY/BEN_InSitu_Registration" method = "POST" enctype="multipart/form-data">
+		<nav style="margin-top: -10px; width: 80%; margin-left: 10%" class="topHead">
+	        <div class="nav-wrapper " style=" background-color: #bf360c ;">
+	          <ul>
+	          	<center>
+	          		<h4 style= "font-size:20px; padding-top: 20px;" >Format A-Information of Survey Being Covered Under Slum Redevelopment</h4>
+	          	</center>
+	          </ul>
+	        </div>
+      	</nav>
+        <form style= "margin-left:11%;" action="http://localhost:8080/PMAY/BEN_InSitu_Registration" method = "POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col input-field s3">
                     <select required name="stateName" onChange="changecat(this.value);">
@@ -282,7 +283,7 @@
                         </div>
                     </div>
                 </div>
-                    					<div class="row number">
+                    					<div style="margin-left: 30%;" class="row number">
                                           <div class="input-field col proName">
                                               <button name="submitbtn" type="submit" class="waves-effect waves-light btn fbtn">Submit</button>
                                         </div>

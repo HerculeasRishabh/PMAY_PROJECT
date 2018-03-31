@@ -36,12 +36,19 @@
             RS.next();
 
         %> 
-        <nav class="header" style="margin-left: 10%;width:80%;">
-            <div class="nav-wrapper" style="margin-left: 20%;width:80%; background-color: green;">
-                <p style ="padding-left: 60px; font-size: 20px; padding-top:20px;">Beneficiary led Construction or Enhancement</p >
-            </div>    
-        </nav>  
-        <form action="http://localhost:8080/Hack2k18_PMAY/BLC_ULB_DPR_Update" method = "POST" style="background-color: #FFEBEE;border-width: 2px;border-radius: 20px;margin-left: 10%;width:80%;">
+        
+        <nav style="margin-top: -10px; width: 80%; margin-left: 10%" class="topHead">
+	        <div class="nav-wrapper " style=" background-color: #bf360c ;">
+	          <ul>
+	          	<center>
+	          		<h4 style= "font-size:20px; padding-top: 20px;" >Beneficiary led Construction or Enhancement</h4>
+	          	</center>
+	          </ul>
+	        </div>
+      	</nav>
+        
+        
+        <form style="margin-left: 11%" action="http://localhost:8080/Hack2k18_PMAY/BLC_ULB_DPR_Update" method = "POST">
             <div class="row">
                 <div class="col input-field s3">
                     <select required name="stateName" onChange="changecat(this.value);">
@@ -775,7 +782,7 @@
 
 
 
-            <div style="alignment-adjust: central;" class="row">
+            <div style="alignment-adjust: central; margin-left: 20%" class="row">
                 <div class="col">
                     <a class="waves-effect waves-light btn"><input name="Save" type="submit"></a>
                 </div>

@@ -113,7 +113,7 @@ public class BEN_Registration extends HttpServlet {
              }
              
          }//end of IF         
-		
+         response.sendRedirect("http://localhost:8080/PMAY/PMAY-U/GeneralContent/BEN_SurveyGNRL.jsp");
 	}//end of doGet
 
 	/**

@@ -31,15 +31,19 @@
 
 <jsp:include page = "../../Headers/IA_Header.jspf"/>
 
-        <nav class="aboutHead" style="width: 80%; margin-left: 10%; background-color: red;">
-            <div class="nav-wrapper" style="margin-left: 10%;width:80%; background-color: green;">
-                <center><h3 style="margin-left:60px;">List of InSitu Beneficiary Based on Aadhar</h3></center>
-            </div>
-        </nav>
+        <nav style="margin-top: -10px; width: 80%; margin-left: 10%" class="topHead">
+	        <div class="nav-wrapper " style=" background-color: #bf360c ;">
+	          <ul>
+	          	<center>
+	          		<h4 style= "font-size:20px; padding-top: 20px;">List of InSitu Beneficiary Based on Aadhar</h4>
+	          	</center>
+	          </ul>
+	        </div>
+	      </nav>
         <br><br>
         <div>
             <br>
-            <form  action="">
+            <form style="margin-top: -30px;" action="">
                 <div class="">
                     <div style="overflow-x:auto; margin-left: 120px;"  >
                         <table id="table-delegate" border ="1" WIDTH="100%">
